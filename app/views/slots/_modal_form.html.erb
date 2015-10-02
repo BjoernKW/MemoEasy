@@ -1,0 +1,14 @@
+<%= simple_form_for(@slot, :remote => true, :html => { 'data-type' => :json, :id => 'new_slot_form' }) do |f| %>
+	<div class="modal-header">
+	  <a class="close" data-dismiss="modal">×</a>
+	  <h3><%= I18n.t('slots.new') %></h3>
+	</div>
+	<div class="modal-body" style="height: 300px;">
+      <div class="form-inputs">
+    	<%= render :partial => 'form_inputs', :locals => { :f => f, :available_days => available_days } %>
+	  </div>
+	</div>
+	<div class="modal-footer">
+	  <%= f.button :submit, I18n.t('slots.create'), :class => 'btn btn-success' %>
+	</div>
+<% end %>

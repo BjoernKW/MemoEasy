@@ -1,0 +1,57 @@
+de:
+  errors:
+    messages:
+      expired: "ist abgelaufen, bitte neu anfordern"
+      not_found: "nicht gefunden"
+      already_confirmed: "wurde bereits bestätigt"
+      not_locked: "ist nicht gesperrt"
+      not_saved:
+        one: "Konnte %{resource} nicht speichern: ein Fehler."
+        other: "Konnte %{resource} nicht speichern: %{count} Fehler."
+
+  devise:
+    failure:
+      already_authenticated: 'Sie sind bereits angemeldet.'
+      unauthenticated: 'Sie müssen sich anmelden oder registrieren, bevor Sie fortfahren können.'
+      unconfirmed: 'Sie müssen Ihren Account bestätigen, bevor Sie fortfahren können.'
+      locked: 'Ihr Account ist gesperrt.'
+      invalid: 'Ungültige eMail Adresse oder Passwort.'
+      not_found_in_database: 'Ungültige eMail Adresse oder Passwort.'
+      invalid_token: 'Der Anmelde-Token ist ungültig.'
+      timeout: 'Ihre Sitzung ist abgelaufen, bitte melden Sie sich erneut an.'
+      inactive: 'Ihr Account ist nicht aktiv.'
+    sessions:
+      signed_in: 'Willkommen zurück.'
+      signed_out: 'Bis bald.'
+    passwords:
+      send_instructions: 'Sie erhalten in wenigen Minuten eine eMail mit der Anleitung, wie Sie ihr Passwort zurücksetzen können.'
+      updated: 'Ihr Passwort wurde geändert. Sie sind jetzt angemeldet.'
+      updated_not_active: 'Ihr Passwort wurde geändert.'
+      send_paranoid_instructions: "Falls Ihre eMail Adresse in unserer Datenbank existiert erhalten Sie in wenigen Minuten eine eMail mit der Anleitung, wie Sie Ihr Passwort zurücksetzen können."
+    confirmations:
+      send_instructions: 'Sie erhalten in wenigen Minuten eine eMail, mit der Sie Ihre Registrierung bestätigen können.'
+      send_paranoid_instructions: 'Falls Ihre eMail Adresse in unserer Datenbank existiert erhalten Sie in wenigen Minuten eine eMail mit der die Sie Ihre Registrierung bestätigen können.'
+      confirmed: 'Vielen Dank. Ihre eMail Addresse ist jetzt bestätigt. Bitte melden Sie sich nun mit Ihren Zugangsdaten an.'
+    registrations:
+      signed_up: 'Sie haben sich erfolgreich registriert.'
+      signed_up_but_unconfirmed: 'Sie haben sich erfolgreich registriert. Wir konnten Sie noch nicht anmelden, da Ihr Account noch nicht bestätigt ist. Sie erhalten in Kürze eine eMail mit der Anleitung, wie Sie Ihren Account freischalten können.'
+      signed_up_but_inactive: 'Sie haben sich erfolgreich registriert. Wir konnten Sie noch nicht anmelden, da Ihr Account inaktiv ist.'
+      signed_up_but_locked: 'Sie haben sich erfolgreich registriert. Wir konnten Sie noch nicht anmelden, da Ihr Account gesperrt ist.'
+      updated: 'Ihre Daten wurden aktualisiert.'
+      update_needs_confirmation: "Ihre Daten wurden aktualisiert, aber Sie müssen Ihre neue eMail Adresse bestätigen. Sie erhalten in wenigen Minuten eine eMail, mit der Sie die Änderung Ihrer eMail Adresse abschließen können."
+      destroyed: 'Auf Wiedersehen! Ihr Account wurde gelöscht. Wir hoffen, Sie bald wieder begrüßen zu dürfen.'
+    unlocks:
+      send_instructions: 'Sie erhalten in wenigen Minuten eine eMail mit der Anleitung, wie Sie Ihren Account entsperren können.'
+      unlocked: 'Ihr Account wurde entsperrt. Sie sind jetzt angemeldet.'
+      send_paranoid_instructions: "Falls Ihre eMail Adresse in unserer Datenbank existiert erhalten Sie in wenigen Minuten eine eMail mit der Anleitung, wie Sie Ihren Account entsperren können."
+    omniauth_callbacks:
+      success: 'Die haben sich erfolgreich mit Ihrem %{kind}-Account angemeldet.'
+      failure: 'Sie konnten nicht Ihrem %{kind}-Account angemeldet werden, weil "%{reason}".'
+    mailer:
+      confirmation_instructions:
+        subject: 'MemoEasy: Bitte bestätigen Sie Ihre eMail Adresse'
+      reset_password_instructions:
+        subject: 'MemoEasy: Anleitung um Ihr Passwort zurückzusetzen'
+      unlock_instructions:
+        subject: 'MemoEasy: Anleitung um Ihren Account freizuschalten'
+        

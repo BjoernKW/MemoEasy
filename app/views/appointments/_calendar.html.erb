@@ -1,0 +1,24 @@
+<h2 id="month">
+  <%= link_to "<", :date => (date.beginning_of_month - 1).strftime("%Y-%m-01") %>
+  <%= I18n.l(date, :format => :month_year) %>
+  <%= link_to ">", :date => (date.end_of_month + 1).strftime("%Y-%m-01") %>
+</h2> 
+<%= calendar_for(appointments, :first_day_of_week => I18n.t('date.first_day_of_week'), :year => date.year, :month => date.month) do |calendar| %>
+  <%= calendar.head(I18n.t('date.abbr_day_names_for_calendar')[0],
+                    I18n.t('date.abbr_day_names_for_calendar')[1],
+                    I18n.t('date.abbr_day_names_for_calendar')[2],
+                    I18n.t('date.abbr_day_names_for_calendar')[3],
+                    I18n.t('date.abbr_day_names_for_calendar')[4],
+                    I18n.t('date.abbr_day_names_for_calendar')[5],
+                    I18n.t('date.abbr_day_names_for_calendar')[6]) %>
+  <%= calendar.day(:day_method => :starts_at) do |date, appointments| %>
+    <%= link_to show_day_path(:date => date), { :remote => true, 'data-type' => 'json' } do %>
+      <%= date.day %>
+      <ul>
+        <% appointments.each_with_index do |appointment, i| %>
+          <li class="label label-info" style="background-color: <%= appointment.staff_member.colour %>">&nbsp;</li>
+        <% end %>
+      </ul>
+    <% end %>
+  <% end %>
+<% end %>

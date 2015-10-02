@@ -1,0 +1,53 @@
+<%= render 'layouts/sub_navigation' %>
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="span6 well">
+			<p>
+			  <strong><%= I18n.t('customers.name') %>:</strong>
+			  <%= @customer.name %>
+			</p>
+			<p>
+			  <strong><%= I18n.t('customers.email') %>:</strong>
+			  <a href="mailto:<%= @customer.email %>"><%= @customer.email %></a><% unless @customer.email_confirmed_at.blank? %> <small>(<strong><%= I18n.t('customers.confirmed') %></strong>: <%= I18n.l(@customer.email_confirmed_at) %>)</small><% end %>
+			</p>
+			<p>
+			  <strong><%= I18n.t('customers.mobile_phone') %>:</strong>
+			  <a href="tel:<%= @customer.mobile_phone %>"><%= @customer.mobile_phone %></a><% unless @customer.mobile_phone_confirmed_at.blank? %> <small>(<strong><%= I18n.t('customers.confirmed') %></strong>: <%= I18n.l(@customer.mobile_phone_confirmed_at) %>)</small><% end %>
+			</p>
+		</div>
+	</div>
+	<div class="row">
+		<div class="span6">
+			<%= link_to I18n.t('back'), customers_path, :class => 'btn btn-secondary' %>
+			<a data-toggle="modal" href="#customer_link_modal_<%= @customer.id %>" class="btn btn-secondary" type="button"><%= I18n.t('customers.customer_link') %>
+			</a>
+			<%= link_to I18n.t('edit'), edit_customer_path(@customer), :class => 'btn btn-secondary' %>
+			<%= link_to I18n.t('delete'), customer_path(@customer), :class => 'btn btn-danger', :title => I18n.t('destroy'), data: { confirm: I18n.t('confirm') }, 'data-message_body' => I18n.t('modal.message_body'), 'data-cancel_text' => I18n.t('cancel'), 'data-confirmed_text' => I18n.t('modal.confirmed_text'), method: :delete %>
+		</div>
+	</div>
+	<h3><%= I18n.t('appointments.history') %></h3>
+	<table class="table table-striped table-hover table-bordered">
+	  <tr>
+	    <th><%= I18n.t('appointments.starts_at') %></th>
+	    <th><%= I18n.t('appointments.ends_at') %></th>
+	    <th><%= I18n.t('services.single') %></th>
+	    <th><%= I18n.t('staff_members.single') %></th>
+	    <th></th>
+	  </tr>
+
+	<% @appointments.each do |appointment| %>
+	  <tr>
+	    <td><%= I18n.l(appointment.starts_at) %></td>
+	    <td><%= I18n.l(appointment.ends_at) %></td>
+	    <td><%= link_to appointment.service.name, appointment.service %></td>
+	    <td><%= link_to appointment.staff_member.name, appointment.staff_member %></td>
+	    <td class="button_column"><%= link_to I18n.t('show'), appointment, :class => 'btn btn-mini' %></td>
+	  </tr>
+	<% end %>
+	</table>
+
+	<%= will_paginate @appointments %>
+</div>
+
+<%= render :partial => 'customer_link_modal', :locals => { :customer => @customer } %>

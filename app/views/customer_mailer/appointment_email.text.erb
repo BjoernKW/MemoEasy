@@ -1,0 +1,7 @@
+<%= I18n.t('emails.appointment.body_text_1', :customer => @appointment.customer.name) %>
+
+<%= I18n.t('emails.appointment.body_text_2', :company => @appointment.company.name) %>
+
+<%= I18n.t('emails.appointment.body_text_3', :starts_at => I18n.l(@appointment.starts_at), :duration => @appointment.service.duration, :staff_member => @appointment.staff_member.name) %>
+
+<%= I18n.t('emails.appointment.body_text_4', :public_url => @public_url) %>

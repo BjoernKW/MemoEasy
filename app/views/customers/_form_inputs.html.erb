@@ -1,0 +1,10 @@
+<%= f.input :first_name, :required => true, :label => I18n.t('customers.first_name') %><span id="first_name_errors" class="error_messages" style="display: none;"></span>
+<%= f.input :last_name, :required => true, :label => I18n.t('customers.last_name') %><span id="last_name_errors" class="error_messages" style="display: none;"></span>
+<%= f.input :email, :label => I18n.t('customers.email') %><span id="email_errors" class="error_messages" style="display: none;"></span>
+<%= f.input :mobile_phone, :label => I18n.t('customers.mobile_phone') %><span id="mobile_phone_errors" class="error_messages" style="display: none;"></span>
+
+<div class="explanation" id="messaging_details_explanation">
+	<div class="fluid-explanation-inner">
+	  <%= I18n.t('customers.messaging_details') %>
+	</div>
+</div>

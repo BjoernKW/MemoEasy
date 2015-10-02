@@ -1,0 +1,343 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_tree ./h5bp
+ *= require_tree ./smoothness
+ *= require_tree ./iCheck/skins/minimal
+ *= require_self
+ *= require_directory .
+*/
+
+.content {
+  	background-color: #fff;
+  	padding: 20px;
+  	margin: 0 -20px; /* negative indent the amount of the padding to maintain the grid system */
+	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility: hidden;
+	-ms-backface-visibility: hidden;
+	backface-visibility: hidden;
+}
+
+#main_footer {
+	margin: auto;
+	padding: 10px;
+	width: 96%;
+	text-align: center;
+	font-size: 12px;
+}
+
+.no_bullets {
+	list-style-type: none;
+}
+
+.no_padding {
+	padding: 0;
+}
+
+.no_margin {
+	margin: 0;
+}
+
+.inline {
+	display: inline;
+}
+
+#sub-nav {
+  	margin: auto;
+}
+
+.error_field {
+	border-color: #b94a48;
+}
+
+.error_messages, .error_label {
+	color: #b94a48;
+}
+
+.error_messages ul {
+	margin: 0 0 15px 0;
+}
+
+.pagination ul {
+    padding: 0;
+}
+
+.nested_fields {
+	margin-left: 20px;
+}
+
+.control-group.select, .control-group.select .controls {
+	display: inline;
+}
+
+.margin-top-20 {
+	margin-top: 20px;
+}
+
+.margin-bottom-20 {
+	margin-bottom: 20px;
+}
+
+.margin-top-10 {
+	margin-top: 10px;
+}
+
+.margin-bottom-10 {
+	margin-bottom: 10px;
+}
+
+.nested_fields_label {
+	font-size: 14px;
+	font-weight: normal;
+	line-height: 20px;
+	height: 20px;
+	margin-bottom: 5px;
+}
+
+.existing_entity {
+	margin-bottom: 20px;
+}
+
+.data_container {
+	display: none;
+}
+
+.btn.btn-brand {
+	background-color: hsl(94, 65%, 71%) !important;
+	background-repeat: repeat-x;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#caeeaf", endColorstr="#aee584");
+	background-image: -khtml-gradient(linear, left top, left bottom, from(#caeeaf), to(#aee584));
+	background-image: -moz-linear-gradient(top, #caeeaf, #aee584);
+	background-image: -ms-linear-gradient(top, #caeeaf, #aee584);
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #caeeaf), color-stop(100%, #aee584));
+	background-image: -webkit-linear-gradient(top, #caeeaf, #aee584);
+	background-image: -o-linear-gradient(top, #caeeaf, #aee584);
+	background-image: linear-gradient(#caeeaf, #aee584);
+	border-color: #aee584 #aee584 hsl(94, 65%, 68.5%);
+	color: #333 !important;
+	text-shadow: 0 1px 1px rgba(255, 255, 255, 0.16);
+	-webkit-font-smoothing: antialiased;
+}
+
+.btn.btn-brand-dark {
+	background-color: hsl(94, 65%, 31%) !important;
+	background-repeat: repeat-x;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#5fac24", endColorstr="#48821b");
+	background-image: -khtml-gradient(linear, left top, left bottom, from(#5fac24), to(#48821b));
+	background-image: -moz-linear-gradient(top, #5fac24, #48821b);
+	background-image: -ms-linear-gradient(top, #5fac24, #48821b);
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #5fac24), color-stop(100%, #48821b));
+	background-image: -webkit-linear-gradient(top, #5fac24, #48821b);
+	background-image: -o-linear-gradient(top, #5fac24, #48821b);
+	background-image: linear-gradient(#5fac24, #48821b);
+	border-color: #48821b #48821b hsl(94, 65%, 28.5%);
+	color: #fff !important;
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.16);
+	-webkit-font-smoothing: antialiased;
+}
+
+.btn.btn-primary {
+	background-color: hsl(94, 65%, 31%) !important;
+	background-repeat: repeat-x;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#5fac24", endColorstr="#48821b");
+	background-image: -khtml-gradient(linear, left top, left bottom, from(#5fac24), to(#48821b));
+	background-image: -moz-linear-gradient(top, #5fac24, #48821b);
+	background-image: -ms-linear-gradient(top, #5fac24, #48821b);
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #5fac24), color-stop(100%, #48821b));
+	background-image: -webkit-linear-gradient(top, #5fac24, #48821b);
+	background-image: -o-linear-gradient(top, #5fac24, #48821b);
+	background-image: linear-gradient(#5fac24, #48821b);
+	border-color: #48821b #48821b hsl(94, 65%, 28.5%);
+	color: #fff !important;
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.16);
+	-webkit-font-smoothing: antialiased;
+}
+
+.brand_colour {
+	color: #7ac143;
+}
+
+input, button, select, textarea {
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+.new_button {
+	margin-top: 4px;
+}
+
+.button_column {
+	width: 10%;
+}
+
+.word-break {
+	word-wrap: break-word;
+}
+
+h2.address {
+	font-size: 18.5px;
+}
+
+.sticky_box {
+	background-color: #ffffff;
+	border: 1px solid #ccc;
+	border: 1px solid rgba(0, 0, 0, 0.2);
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	border-radius: 6px;
+	-webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+	-moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+	-webkit-background-clip: padding-box;
+	-moz-background-clip: padding;
+	background-clip: padding-box;
+	padding: 0 20px 20px 20px;
+	position: fixed;
+	z-index: 100;
+}
+
+#tutorial_todo {
+    top: 80px; 
+    right: 20px;
+}
+
+#upgrade_plan {
+	text-align: center;
+	padding-left: auto;
+	padding-right: auto;
+	padding-top: 20px;
+    top: 50px; 
+    right: 20px;
+}
+
+#tutorial_todo ol li.done {
+	text-decoration: line-through;
+}
+
+#tutorial_todo ol li.done a {
+	color: #999;
+}
+
+.balloon {
+	background-color: #ffffff;
+	border: 1px solid #ccc;
+	border: 1px solid rgba(0, 0, 0, 0.2);
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	border-radius: 6px;
+	-webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+	-moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+	-webkit-background-clip: padding-box;
+	-moz-background-clip: padding;
+	background-clip: padding-box;
+	padding: 20px;
+	margin: 20px;
+	width: 180px;
+}
+
+.balloon.even {
+	margin-left: 60px;
+}
+
+.field_with_bottom_margin {
+	margin-bottom: 20px;
+}
+
+.clear_both {
+	clear: both;
+}
+
+#customer_company_logo a {
+	margin: 10px;
+}
+
+.inactive_submit_box {
+	width: 120px;
+	height: 50px;
+	z-index: 10;
+	position: absolute;
+}
+
+label.checkbox {
+	padding-left: 0;
+}
+
+.inline_label {
+	display: inline;
+}
+
+.pointer {
+	cursor: pointer;
+}
+
+.rounded_corners {
+	background-color: #ffffff;
+	border: 1px solid #ccc;
+	border: 1px solid rgba(0, 0, 0, 0.2);
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	border-radius: 6px;
+	-webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+	-moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+#plan-options form {
+	margin: 0;
+}
+
+#plan-options .form-horizontal .controls {
+	margin-left: 0;
+}
+
+@media (max-width: 481px) {
+  .fancy_date_picker {
+    display: none;
+  }
+  .system_date_picker {
+    display: block;
+  }
+}
+
+@media (min-width: 482px) {
+  .fancy_date_picker {
+    display: block;
+  }
+  .system_date_picker {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .balloon {
+  	display: none;
+  }
+}
+
+@media (max-width: 979px) {
+  #tutorial_todo {
+    display: none;
+  }
+  #upgrade_plan {
+    display: none;
+  }
+  .default-right-margin-50 {
+  	margin-right: 50px;
+  }
+}
+
+@media (min-width: 980px) {
+  #tutorial_todo {
+    display: block;
+  }
+  #upgrade_plan {
+    display: block;
+  }
+}

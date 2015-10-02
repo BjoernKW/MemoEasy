@@ -1,0 +1,28 @@
+<div class="span12 well">
+	<%= simple_form_for(@customer_set, :html => { :multipart => true }) do |f| %>
+	  <div class="form-inputs">
+	  	<% 5.times do %>
+				<%= f.fields_for :customers do |c| %>
+					<%= render :partial => 'multiple_form_inputs', :locals => { :f => c } %>
+				<% end %>
+				<hr>
+			<% end %>
+			<div class="fileupload fileupload-new" data-provides="fileupload">
+			  <%= I18n.t('or') %>: <span class="btn btn-file"><span class="fileupload-new"><%= I18n.t('customers.csv_file.select_csv_file') %></span><span class="fileupload-exists"><%= I18n.t('change') %></span><input type="file" id="csv_file" name="csv_file"></span>
+			  <span class="fileupload-preview"></span>
+			  <a href="#" class="close fileupload-exists" data-dismiss="fileupload" style="float: none">×</a>
+			  <br><br>
+			 	<%= I18n.t('format') %>:<br>
+				<p>
+					<code><%= I18n.t('customers.csv_file.example_line') %></code>
+					<br>
+					<code><%= I18n.t('customers.csv_file.example_line') %></code>
+				</p>
+			</div>
+	  </div>
+	  <div class="form-actions">
+	  	<%= link_to I18n.t('back'), customers_path, :class => 'btn btn-secondary' %>
+	    <%= f.button :submit, I18n.t('update'), :class => 'btn btn-success' %>
+	  </div>
+	<% end %>
+</div>

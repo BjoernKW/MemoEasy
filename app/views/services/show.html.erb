@@ -1,0 +1,23 @@
+<%= render 'layouts/sub_navigation' %>
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="span6 well">
+			<p>
+			  <strong><%= I18n.t('services.name') %>:</strong>
+			  <%= @service.name %>
+			</p>
+			<p>
+			  <strong><%= I18n.t('services.duration') %>:</strong>
+			  <%= @service.duration %>
+			</p>
+		</div>
+	</div>
+	<div class="row">
+		<div class="span6">
+			<%= link_to I18n.t('back'), services_path, :class => 'btn btn-secondary' %>
+			<%= link_to I18n.t('edit'), edit_service_path(@service), :class => 'btn btn-secondary' %>
+			<%= link_to I18n.t('delete'), service_path(@service), :class => 'btn btn-danger', :title => I18n.t('destroy'), data: { confirm: I18n.t('confirm') }, 'data-message_body' => I18n.t('modal.message_body'), 'data-cancel_text' => I18n.t('cancel'), 'data-confirmed_text' => I18n.t('modal.confirmed_text'), method: :delete %>
+		</div>
+	</div>
+</div>

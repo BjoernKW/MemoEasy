@@ -1,0 +1,25 @@
+<h2><%= I18n.t('auth.log_in') %></h2>
+
+<%= render 'layouts/messages' %>
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="span4 well">
+			<%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => { :class => 'form-vertical' }) do |f| %>
+			  <div class="form-inputs">
+			  	<%= f.input :email, :label => I18n.t('auth.login'), :autofocus => true %>
+			  	<%= f.input :password, :label => I18n.t('auth.password') %>
+			  	<%= f.input :remember_me, label: false, :inline_label => I18n.t('auth.remember_me'), :as => :boolean if devise_mapping.rememberable? %>
+			  </div>
+			  <div class="form-actions">
+			  	<%= f.button :submit, I18n.t('auth.log_in'), :class => 'btn btn-primary' %>
+			  </div>
+			<% end %>
+		</div>
+	</div>
+	<div class="row">
+		<%= render "devise/shared/links" %>
+	</div> 
+</div>
+
+

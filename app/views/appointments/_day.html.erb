@@ -1,0 +1,21 @@
+<div id="day_indicator"></div>
+<h2 id="day">
+  <%= I18n.l(date, :format => :long) %>
+</h2> 
+<hr>
+<ul class="no_bullets">
+	<% appointments_for_day.each do |appointment| %>
+		<li>
+  		<div class="appointment_time">
+  			<%= link_to edit_appointment_path(appointment) do %><%= I18n.l(appointment.starts_at, :format => :time) %><br><%= appointment.service.duration > 1 ? I18n.t('datetime.distance_in_words.x_minutes.other', :count => appointment.service.duration) : I18n.t('datetime.distance_in_words.x_minutes.one') %><% end %>
+        <% if appointment.repeat_in_days > 0 %><p><small><%= I18n.t('appointments.repeat_interval') %>:<br><%= I18n.t('appointments.days', :days => appointment.repeat_in_days) %></small></p><% end %>
+  		</div>
+  		<div class="appointment_details">
+  			<%= link_to appointment.service do %><%= appointment.service.name %><% end %><br>
+  			<%= link_to appointment.customer do %><%= appointment.customer.name %><% end %><br>
+  			<span class="label label-info" style="background-color: <%= appointment.staff_member.colour %>;">&nbsp;</span>&nbsp;<%= link_to appointment.staff_member do %><%= appointment.staff_member.name %><% end %>
+  		</div>
+  		<hr class="appointment_divider">
+  	</li>
+	<% end %>
+</ul>

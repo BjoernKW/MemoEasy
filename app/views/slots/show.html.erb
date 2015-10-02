@@ -1,0 +1,27 @@
+<%= render 'layouts/sub_navigation' %>
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="span6 well">
+			<p>
+			  <strong><%= I18n.t('slots.starts_at') %>:</strong>
+			  <%= @slot.display_time_component(@slot.starts_at_hour) %>:<%= @slot.display_time_component(@slot.starts_at_minute) %>
+			</p>
+			<p>
+			  <strong><%= I18n.t('slots.ends_at') %>:</strong>
+			  <%= @slot.display_time_component(@slot.ends_at_hour) %>:<%= @slot.display_time_component(@slot.ends_at_minute) %>
+			</p>
+			<p>
+			  <strong><%= I18n.t('slots.weekday') %>:</strong>
+			  <%= I18n.t('date.day_names')[@slot.weekday] %>
+			</p>
+		</div>
+	</div>
+	<div class="row">
+		<div class="span6">
+			<%= link_to I18n.t('back'), slots_path, :class => 'btn btn-secondary' %>
+			<%= link_to I18n.t('edit'), edit_slot_path(@slot), :class => 'btn btn-secondary' %>
+			<%= link_to I18n.t('delete'), slot_path(@slot), :class => 'btn btn-danger', :title => I18n.t('destroy'), data: { confirm: I18n.t('confirm') }, 'data-message_body' => I18n.t('modal.message_body'), 'data-cancel_text' => I18n.t('cancel'), 'data-confirmed_text' => I18n.t('modal.confirmed_text'), method: :delete %>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,163 @@
+// Place all the styles related to the Appointments controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#appointments {
+  margin: 10px 0;
+}
+
+#appointment_controls {
+  clear: both;
+}
+
+#calendar {
+  width: 61.803398875%;
+  float: left;
+}
+
+#appointments_today {
+  width: 30%;
+  margin-left: 20px;
+  float: right;
+  vertical-align: top;
+  padding: 0;
+  margin: 0;
+}
+
+#calendar table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 20px 0;
+}
+
+#calendar td,
+#calendar th {
+  font-family: "Lucida Grande",arial,helvetica,sans-serif;
+  font-size: 10px;
+  padding: 6px;
+  border: 1px solid #999;
+}
+
+#calendar th {
+  background: #DDD;
+  color: #666;
+  text-align: center;
+  width: 14.2857142857143%;
+}
+
+#calendar td {
+  background: #FFF;
+  color: #777;
+  height: 80px;
+  vertical-align: top;
+  font-size: 16px;
+  height: 70px;
+}
+
+#calendar .notmonth {
+  color: #CCC;
+}
+
+#calendar #month {
+  margin: auto;
+  text-align: center;
+  width: 100%;
+}
+
+#calendar #month a, #calendar #month a:hover {
+  text-decoration: none;
+  padding: 0 10px;
+  color: #999;
+}
+
+#calendar .today {
+  background-color: #f5ffec;
+}
+
+#calendar ul {
+  margin: 0;
+  margin-top: 5px;
+  padding: 0;
+  list-style: none;
+}
+
+#calendar li {
+  margin: 0 0 1px 0;
+  padding: 4px;
+  font-size: 11px;
+  text-align: center;
+}
+
+#calendar li a {
+  color: #fff;
+}
+
+#calendar li a:hover {
+  color: #eee;
+}
+
+#calendar td a {
+  text-decoration: none;
+}
+
+#day {
+  margin: auto;
+}
+
+.appointment_time {
+  float: left;
+}
+
+.appointment_details {
+  float: right;
+  width: 61.803398875%;
+  margin-bottom: 10px;
+}
+
+.appointment_divider {
+  clear: both;
+}
+
+.explanation {
+  display: none;
+}
+
+.explanation-inner {
+  padding: 5px;
+  width: 300px;
+}
+
+.fluid-explanation-inner {
+  padding: 5px;
+}
+
+.starts_at_time {
+  width: 230px;
+}
+
+.fancy_date_picker {
+  width: 230px;
+}
+
+li.slot_element {
+  margin-bottom: 5px;
+  cursor: pointer;
+}
+
+li.slot_element:hover {
+  position: relative;
+  z-index: 100;
+  box-shadow: 5px 0px 25px rgba(0,0,0,0.7);
+  -webkit-box-shadow: 5px 0px 25px rgba(0,0,0,0.7);
+  -moz-box-shadow: 5px 0px 25px rgba(0,0,0,0.7);
+  -webkit-transform: translate(-5px,-5px);
+  -moz-transform: translate(-5px,-5px);
+  -o-transform: translate(-5px,-5px);
+  -ms-transform: translate(-5px,-5px);
+  transform: translate(-5px,-5px);
+  -webkit-transition-delay: 0s;
+  -moz-transition-delay: 0s;
+  -o-transition-delay: 0s;
+  -ms-transition-delay: 0s;
+  transition-delay: 0s;
+}

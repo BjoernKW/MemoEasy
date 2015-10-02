@@ -1,0 +1,34 @@
+<%= render 'layouts/sub_navigation' %>
+
+<div id="list">
+  <h2><%= I18n.t('users.list') %></h2>
+  <table class="table table-striped table-hover table-bordered">
+    <thead>
+      <tr>
+        <th><%= I18n.t('users.username') %></th>
+        <th><%= I18n.t('users.email') %></th>
+        <th><%= I18n.t('users.registered') %></th>
+        <th><%= I18n.t('users.role') %></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= link_to user.name, user %></td>
+        <td><%= user.email %></td>
+        <td><%= user.created_at.to_date %></td>
+        <td><%= user.roles.first.name.titleize unless user.roles.first.nil? %></td>
+        <td>
+          <a data-toggle="modal" href="#role-options-<%= user.id %>" class="btn btn-mini btn-warning" type="button"><%= I18n.t('users.change_role') %></a>
+          <%= render user %>
+        </td>
+        <td>
+          <%= link_to(I18n.t('destroy'), user_path(user), :title => I18n.t('destroy'), :data => { confirm: I18n.t('confirm') }, 'data-message_body' => I18n.t('modal.message_body'), 'data-cancel_text' => I18n.t('cancel'), 'data-confirmed_text' => I18n.t('modal.confirmed_text'), :method => :delete, :class => 'btn btn-mini btn-danger') unless user == current_user %>
+        </td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>

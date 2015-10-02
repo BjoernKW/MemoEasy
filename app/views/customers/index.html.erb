@@ -1,0 +1,19 @@
+<%= render 'layouts/sub_navigation' %>
+
+<div id="customer_created" class="alert alert-success" style="display: none;">
+  <%= I18n.t('customers.created') %>
+</div>
+
+<p>
+	<%= link_to I18n.t('customers.new'), new_customer_path, :class => 'btn' %>
+	<%= link_to I18n.t('customers.create_multiple'), multiple_new_customers_path, :class => 'btn' %>
+</p>
+
+<div id="list">
+  <%= render :partial => 'list', :locals => { :customers => @customers } %>
+</div>
+
+<p>
+	<%= link_to I18n.t('customers.new'), new_customer_path, :class => 'btn' %>
+	<%= link_to I18n.t('customers.create_multiple'), multiple_new_customers_path, :class => 'btn' %>
+</p>

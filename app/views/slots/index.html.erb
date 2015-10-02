@@ -1,0 +1,19 @@
+<%= render 'layouts/sub_navigation' %>
+
+<div id="slot_created" class="alert alert-success" style="display: none;">
+  <%= I18n.t('slots.created') %>
+</div>
+
+<p><%= link_to I18n.t('slots.new'), new_slot_path, :class => 'btn' %></p>
+
+<h3><%= I18n.t('slots.list') %></h3>
+<div id="list">
+  <%= render :partial => 'list', :locals => { :slots => @slots } %>
+</div>
+
+<h3><%= I18n.t('slots.blockers') %></h3>
+<div id="blockers">
+  <%= render :partial => 'list', :locals => { :slots => @blockers } %>
+</div>
+
+<p><%= link_to I18n.t('slots.new'), new_slot_path, :class => 'btn' %></p>

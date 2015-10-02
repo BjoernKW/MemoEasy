@@ -1,0 +1,13 @@
+<%= render 'layouts/sub_navigation' %>
+
+<div id="staff_member_created" class="alert alert-success" style="display: none;">
+  <%= I18n.t('staff_members.created') %>
+</div>
+
+<p><%= link_to I18n.t('staff_members.new'), new_staff_member_path, :class => 'btn' %></p>
+
+<div id="list">
+  <%= render :partial => 'list', :locals => { :staff_members => @staff_members } %>
+</div>
+
+<p><%= link_to I18n.t('staff_members.new'), new_staff_member_path, :class => 'btn' %></p>

@@ -1,0 +1,4 @@
+<div class="container-fluid">
+	<%= I18n.t('customers.link_explanation') %><br><br>
+	<%= link_to public_url(:id => current_user.company.public_identifier, :customer_id => customer.id, :protocol => 'https'), public_url(:id => current_user.company.public_identifier, :customer_id => customer.id, :protocol => 'https') %>
+</div>

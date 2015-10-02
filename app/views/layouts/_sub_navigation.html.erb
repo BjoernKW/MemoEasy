@@ -1,0 +1,15 @@
+<% unless controller_name == 'appointments' && action_name == 'public' %>
+	<% if user_signed_in? %>
+		<div id="sub-nav">
+			<ul class="nav nav-pills">
+				<%= active_link_to I18n.t('appointments.list'), appointments_path, :wrap_tag => :li %>
+			  <%= active_link_to I18n.t('customers.list'), customers_path, :wrap_tag => :li %>
+			  <%= active_link_to I18n.t('services.list'), services_path, :wrap_tag => :li %>
+			  <%= active_link_to I18n.t('staff_members.list'), staff_members_path, :wrap_tag => :li %>
+			  <%= active_link_to I18n.t('slots.list'), slots_path, :wrap_tag => :li %>
+			  <%= active_link_to I18n.t('public_site'), public_path(:id => current_user.company.public_identifier), :wrap_tag => :li, :target => '_blank' %>
+			</li>
+		</div>
+		<%= render 'layouts/messages' %>
+	<% end %>
+<% end %>

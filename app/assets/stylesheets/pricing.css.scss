@@ -1,0 +1,86 @@
+.plans {
+	text-align: center;
+	margin: auto;
+	max-width: 1050px;
+}
+.featured {
+	-webkit-transform:scale(1.15);
+	box-shadow: 0 0 30px rgba(0, 0, 0, 0.67);
+}
+.plan.silver {
+	background-color: #c0c0c0;
+}
+.plan.gold {
+	background-color: #7ac143;
+}
+.plan.platinum {
+	background-color: #c0c0c0;
+}
+.plan h2 {
+	line-height: 100px;
+	color: #fff;
+}
+.plans ul {
+	padding: 0;
+}
+.plan:hover, .featured_plan {
+	background-color: #7ac143;
+}
+.plan.gold_not_featured {
+	background-color: #c0c0c0;
+}
+
+.plans .plan_wrapper {
+	height: 100%;
+	width: 270px;
+	-webkit-transform: translate(0px, 0px);
+	-moz-transform: translate(0px, 0px);
+	-o-transform: translate(0px, 0px);
+	-ms-transform: translate(0px, 0px);
+	transform: translate(0px, 0px);
+	-webkit-transition: all 0.2s ease-in-out;
+	-moz-transition: all 0.2s ease-in-out;
+	-o-transition: all 0.2s ease-in-out;
+	-ms-transition: all 0.2s ease-in-out;
+	transition: all 0.2s ease-in-out;
+	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility: hidden;
+	-ms-backface-visibility: hidden;
+	backface-visibility: hidden;
+}
+
+.plans .plan_wrapper:hover {
+	position: relative;
+	z-index: 100;
+	box-shadow: 5px 0px 25px rgba(0,0,0,0.7);
+	-webkit-box-shadow: 5px 0px 25px rgba(0,0,0,0.7);
+	-moz-box-shadow: 5px 0px 25px rgba(0,0,0,0.7);
+	-webkit-transform: translate(-5px,-15px);
+	-moz-transform: translate(-5px,-15px);
+	-o-transform: translate(-5px,-15px);
+	-ms-transform: translate(-5px,-15px);
+	transform: translate(-5px,-15px);
+}
+
+#welcome_small_screen {
+	max-height: 190px;
+	color: #333;
+}
+
+@media (max-width: 481px) {
+	#welcome {
+		display: none;
+	}
+	#welcome_small_screen {
+		display: block;
+	}
+}
+
+@media (min-width: 482px) {
+	#welcome {
+		display: block;
+	}
+	#welcome_small_screen {
+		display: none;
+	}
+}

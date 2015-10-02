@@ -1,0 +1,40 @@
+<%= render 'layouts/sub_navigation' %>
+
+<div id="appointment_created" class="alert alert-success" style="display: none;">
+  <%= I18n.t('appointments.created') %>
+</div>
+
+<div id="appointment_updated" class="alert alert-success" style="display: none;">
+  <%= I18n.t('appointments.updated') %>
+</div>
+
+<p>
+  <%= render :partial => 'controls' %>
+</p>
+
+<div id="appointments">
+  <div id="calendar">
+    <%= render :partial => 'calendar', :locals => { :date => @date, :appointments => @appointments } %>
+  </div>
+
+  <div id="appointments_today">
+    <%= render :partial => 'day', :locals => { :date => @date, :appointments_for_day => @appointments_for_day } %>
+  </div>
+</div>
+
+<div id="appointment_controls">
+  <p>
+    <%= render :partial => 'controls' %>
+  </p>
+</div>
+
+<% if user_signed_in? %>
+  <div data-day="<%= @selected_day %>" data-date="<%= @today %>" data-year="<%= @today.year %>" data-month="<%= @today.month %>" id="selected" style="data_container"></div>
+  <div data-start="<%= @start_times[0] %>" data-end="<%= @end_times[0] %>" id="time_0" style="data_container"></div>
+  <div data-start="<%= @start_times[1] %>" data-end="<%= @end_times[1] %>" id="time_1" style="data_container"></div>
+  <div data-start="<%= @start_times[2] %>" data-end="<%= @end_times[2] %>" id="time_2" style="data_container"></div>
+  <div data-start="<%= @start_times[3] %>" data-end="<%= @end_times[3] %>" id="time_3" style="data_container"></div>
+  <div data-start="<%= @start_times[4] %>" data-end="<%= @end_times[4] %>" id="time_4" style="data_container"></div>
+  <div data-start="<%= @start_times[5] %>" data-end="<%= @end_times[5] %>" id="time_5" style="data_container"></div>
+  <div data-start="<%= @start_times[6] %>" data-end="<%= @end_times[6] %>" id="time_6" style="data_container"></div>
+<% end %>

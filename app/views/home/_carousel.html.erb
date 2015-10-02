@@ -1,0 +1,83 @@
+<div id="welcome" class="carousel slide">
+  <ol class="carousel-indicators">
+    <li data-target="#welcome" data-slide-to="0" class="active"></li>
+    <li data-target="#welcome" data-slide-to="1"></li>
+    <li data-target="#welcome" data-slide-to="2"></li>
+    <li data-target="#welcome" data-slide-to="3"></li>
+    <li data-target="#welcome" data-slide-to="4"></li>
+  </ol>
+  <div class="carousel-inner">
+    <div class="active item">
+      <%= link_to new_user_registration_path(:plan => 'gold') do %><img src="/images/carousel_item_1.jpg"><% end %>
+      <div class="container-fluid">
+        <div class="carousel-caption">
+          <%= link_to new_user_registration_path(:plan => 'gold') do %>
+            <h2><%= I18n.t('home.index.title1') %></h2>
+            <% if I18n.t('home.index.description1') != '' %><h3><%= I18n.t('home.index.description1') %></h3><% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="item">
+      <%= link_to new_user_registration_path(:plan => 'gold') do %><img src="/images/carousel_item_2.jpg"><% end %>
+      <div class="container-fluid">
+        <div class="carousel-caption">
+          <%= link_to new_user_registration_path(:plan => 'gold') do %>
+            <h2><%= I18n.t('home.index.title2') %></h2>
+            <% if I18n.t('home.index.description2') != '' %><h3><%= I18n.t('home.index.description2') %></h3><% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="item">
+      <%= link_to new_user_registration_path(:plan => 'gold') do %><img src="/images/carousel_item_3.jpg"><% end %>
+      <div class="container-fluid">
+        <div class="carousel-caption">
+          <%= link_to new_user_registration_path(:plan => 'gold') do %>
+            <h2><%= I18n.t('home.index.title3') %></h2>
+            <% if I18n.t('home.index.description3') != '' %><h3><%= I18n.t('home.index.description3') %></h3><% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="item">
+      <%= link_to new_user_registration_path(:plan => 'gold') do %><img src="/images/carousel_item_4.jpg"><% end %>
+      <div class="container-fluid">
+        <div class="carousel-caption">
+          <%= link_to new_user_registration_path(:plan => 'gold') do %>
+            <h2><%= I18n.t('home.index.title4') %></h2>
+            <% if I18n.t('home.index.description4') != '' %><h3><%= I18n.t('home.index.description2') %></h3><% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="item">
+      <%= link_to new_user_registration_path(:plan => 'gold') do %><img src="/images/carousel_item_5.jpg"><% end %>
+      <div class="container-fluid">
+        <div class="carousel-caption">
+          <%= link_to new_user_registration_path(:plan => 'gold') do %>
+            <h2><%= I18n.t('home.index.title5') %></h2>
+            <% if I18n.t('home.index.description5') != '' %><h3><%= I18n.t('home.index.description3') %></h3><% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <a class="carousel-control left" href="#welcome" data-slide="prev">&lsaquo;</a>
+  <a class="carousel-control right" href="#welcome" data-slide="next">&rsaquo;</a>
+</div>
+
+<div id="welcome_small_screen" class="carousel slide">
+  <div class="carousel-inner">
+    <div class="active item">
+      <%= link_to new_user_registration_path(:plan => 'gold') do %>
+        <h2><%= I18n.t('home.index.title3') %></h2>
+      <% end %>
+    </div>
+    <div class="item">
+      <%= link_to new_user_registration_path(:plan => 'gold') do %>
+        <h2><%= I18n.t('home.index.title4') %></h2>
+      <% end %>
+    </div>
+  </div>
+</div>

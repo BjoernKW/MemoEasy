@@ -1,0 +1,13 @@
+<%= render 'layouts/sub_navigation' %>
+
+<% unless @customer.nil? %>
+	<div class="alert alert-success">
+	  <a class="close" data-dismiss="alert">×</a>
+	  <div><%= I18n.t('confirmations.customer_email', :company => @customer.company.name) %></div>
+	</div>
+<% else %>
+	<div class="alert alert-error">
+	  <a class="close" data-dismiss="alert">×</a>
+	  <div><%= I18n.t('confirmations.customer_email_failed') %></div>
+	</div>
+<% end %>

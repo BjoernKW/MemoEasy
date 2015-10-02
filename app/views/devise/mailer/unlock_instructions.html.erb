@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+  	<p><%= I18n.t('emails.reset_password.body_text_1', :customer => "#{@resource.first_name} #{@resource.last_name}") %></p>
+		<p><%= I18n.t('emails.reset_password.body_text_2') %></p>
+		<p><%= I18n.t('emails.reset_password.body_text_3') %></p>
+		<p><%= link_to I18n.t('auth.unlock_account'), unlock_url(@resource, :unlock_token => @token, :protocol => 'https') %></p>
+  </body>
+</html>

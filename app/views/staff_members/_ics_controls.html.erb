@@ -1,0 +1,3 @@
+<%= link_to I18n.t('appointments.ics'), icalendar_path(:id => current_user.company.ics_identifier, :staff_member_id => @staff_member.id, :format => :ics), :class => 'btn' %>
+<a data-toggle="modal" data-target="#ics_link_modal" href="#ics_link_modal" class="btn" type="button"><%= I18n.t('appointments.ics_link') %></a>
+<%= render :partial => '/appointments/ics_link', :locals => { :ics_link => icalendar_url(:id => current_user.company.ics_identifier, :staff_member_id => @staff_member.id, :format => :ics, :protocol => 'https') } %>

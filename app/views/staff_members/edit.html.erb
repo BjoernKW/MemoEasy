@@ -1,0 +1,13 @@
+<%= render 'layouts/sub_navigation' %>
+
+<div class="container-fluid">
+	<div class="row">
+		<%= render 'form' %>
+	</div>
+	<div class="row">
+		<div class="span6">
+			<%= link_to I18n.t('show'), @staff_member, :class => 'btn btn-secondary' %>
+			<%= link_to I18n.t('delete'), staff_member_path(@staff_member), :class => 'btn btn-danger', :title => I18n.t('destroy'), data: { confirm: I18n.t('confirm') }, 'data-message_body' => I18n.t('modal.message_body'), 'data-cancel_text' => I18n.t('cancel'), 'data-confirmed_text' => I18n.t('modal.confirmed_text'), method: :delete %>
+		</div>
+	</div>
+</div>

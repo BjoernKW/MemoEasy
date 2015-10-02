@@ -1,0 +1,13 @@
+<div id="customer_link_modal_<%= customer.id %>" class="modal hide fade" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="customer_link_modal_header"><%= I18n.t('customers.customer_link') %></h3>
+  </div>
+  <div class="modal-body word-break">
+  	<%= render :partial => 'customer_link', :locals => { :customer => customer } %>
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true"><%= I18n.t('close') %></button>
+    <%= link_to I18n.t('customers.send_customer_link'), send_customer_link_customer_path(customer), { :remote => true, 'data-type' => 'json', :class => 'btn btn-primary', :data => { dismiss: 'modal' } } %>
+  </div>
+</div>

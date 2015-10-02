@@ -1,0 +1,57 @@
+$iconSpritePath: '/images/glyphicons/glyphicons-halflings.png';
+$iconWhiteSpritePath: '/images/glyphicons/glyphicons-halflings-white.png';
+
+@import "bootstrap";
+body { padding-top: 60px; }
+@import "bootstrap-responsive";
+
+a {
+	color: #7ac143;
+}
+
+a:hover, a:focus {
+	color: #629c36;
+}
+
+.nav-pills > .active > a, .nav-pills > .active > a:hover, .nav-pills > .active > a:focus {
+	color: white;
+	background-color: #7ac143;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-weight: 300;
+}
+
+.carousel .item a {
+	color: inherit;
+}
+
+.carousel .item a:hover, .carousel .item a:focus {
+	color: inherit;
+	text-decoration: none;
+}
+
+textarea:focus,
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="datetime"]:focus,
+input[type="datetime-local"]:focus,
+input[type="date"]:focus,
+input[type="month"]:focus,
+input[type="time"]:focus,
+input[type="week"]:focus,
+input[type="number"]:focus,
+input[type="email"]:focus,
+input[type="url"]:focus,
+input[type="search"]:focus,
+input[type="tel"]:focus,
+input[type="color"]:focus,
+.uneditable-input:focus {
+	border-color: rgba(122, 193, 67, 0.8);
+	outline: 0;
+	outline: thin dotted \9;
+	/* IE6-9 */
+	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(122, 193, 67, 0.6);
+	-moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(122, 193, 67, 0.6);
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(122, 193, 67, 0.6);
+}

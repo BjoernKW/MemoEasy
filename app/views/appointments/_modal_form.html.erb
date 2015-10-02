@@ -1,0 +1,16 @@
+<%= simple_form_for(appointment, :remote => true, :html => { 'data-type' => :json, :class => 'appointment_form' }) do |f| %>
+	<div class="modal-header">
+	  <a class="close" data-dismiss="modal">×</a>
+	  <h3><%= I18n.t('appointments.new') %></h3>
+	</div>
+	<div class="modal-body">
+    <div class="form-inputs">
+      <%= render :partial => 'form_inputs', :locals => { :f => f, :appointment => appointment, :staff_members => @staff_members } %>
+  	</div>
+	</div>
+	<div class="modal-footer">
+	  <%= f.button :submit, I18n.t('appointments.create'), :class => 'btn btn-success btn-create' %>
+	  <%= f.button :submit, I18n.t('appointments.edit'), :class => 'btn btn-success btn-update', :style => 'display: none;' %>
+	</div>
+<% end %>
+  

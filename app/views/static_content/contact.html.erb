@@ -1,0 +1,25 @@
+<%= render 'layouts/sub_navigation' %>
+
+<div class="container-fluid">
+	<h2><%= I18n.t('content.contact.header') %></h2>
+	<p>
+		<a href="<%= I18n.t('content.contact.website') %>" target="_blank" title="<%= I18n.t('company_name') %>"><%= I18n.t('content.contact.line1') %></a><br>
+		<%= I18n.t('content.contact.line2') %><br>
+		<%= I18n.t('content.contact.line3') %><br>
+	</p>
+	<p>
+		<%= I18n.t('content.contact.line4') %> <a href="<%= I18n.t('content.contact.website') %>" target="_blank" title="<%= I18n.t('company_name') %>"><%= I18n.t('content.contact.website') %></a><br>
+		<%= I18n.t('content.contact.line5') %> <%= I18n.t('content.contact.email') %><br>
+		<%= I18n.t('content.contact.line6') %> <%= I18n.t('content.contact.phone') %><br>
+	</p>
+	<p>
+		<%= I18n.t('content.contact.line7') %> <%= I18n.t('content.contact.managing_director') %><br>
+		<%= I18n.t('content.contact.line8') %> <%= I18n.t('content.contact.company_register') %><br>
+	</p>
+	<p>
+		<%= I18n.t('content.contact.line9') %> <%= I18n.t('content.contact.vat_id') %><br>
+		<%= I18n.t('content.contact.line10') %> <%= I18n.t('content.contact.tax_id') %><br>
+	</p>
+	
+	<%= I18n.t('content.contact.disclaimer').html_safe %>
+</div>

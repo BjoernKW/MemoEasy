@@ -1,0 +1,23 @@
+<table class="table table-striped table-hover table-bordered">
+  <tr>
+    <th><%= I18n.t('slots.starts_at') %></th>
+    <th><%= I18n.t('slots.ends_at') %></th>
+    <th><%= I18n.t('slots.weekday') %></th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% slots.each do |slot| %>
+  <tr>
+    <td><%= slot.display_time_component(slot.starts_at_hour) %>:<%= slot.display_time_component(slot.starts_at_minute) %></td>
+    <td><%= slot.display_time_component(slot.ends_at_hour) %>:<%= slot.display_time_component(slot.ends_at_minute) %></td>
+    <td><%= I18n.t('date.day_names')[slot.weekday] %></td>
+    <td class="button_column"><%= link_to I18n.t('show'), slot, :class => 'btn btn-mini' %></td>
+    <td class="button_column"><%= link_to I18n.t('edit'), edit_slot_path(slot), :class => 'btn btn-mini' %></td>
+    <td class="button_column">
+      <%= link_to I18n.t('destroy'), slot, :title => I18n.t('destroy'), data: { confirm: I18n.t('confirm') }, 'data-message_body' => I18n.t('modal.message_body'), 'data-cancel_text' => I18n.t('cancel'), 'data-confirmed_text' => I18n.t('modal.confirmed_text'), method: :delete, :class => 'btn btn-mini btn-danger' %>
+    </td>
+  </tr>
+<% end %>
+</table>

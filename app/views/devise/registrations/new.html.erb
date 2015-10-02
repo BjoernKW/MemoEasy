@@ -1,0 +1,87 @@
+<h2><%= I18n.t('auth.sign_up') %></h2>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="span4 well">
+      <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {:class => 'card_form form-vertical', 'data-signature' => @signature, 'data-ip_address' => request.remote_ip}) do |f| %>
+        <div class="form-inputs">
+          <h3><%= I18n.t("plans.#{params[:plan]}") if params[:plan] %> <%= I18n.t('devise.registrations.new.subscription_plan') %></h3>
+          <%= f.error_notification %>
+          <%= display_base_errors resource %>
+          <%= hidden_field_tag 'plan', params[:plan] %>
+          <%= render :partial => 'common_form_inputs', :locals => { :f => f } %>
+          <div class="field">
+            <%= label_tag :country, I18n.t('devise.registrations.new.country') %>
+            <%= select(:user, :country, [[I18n.t(:DE, :scope => :countries), 'DE'], [I18n.t(:AT, :scope => :countries), 'AT'], [I18n.t(:CH, :scope => :countries), 'CH'], [I18n.t(:NL, :scope => :countries), 'NL'], [I18n.t(:BE, :scope => :countries), 'BE'], [I18n.t(:LU, :scope => :countries), 'LU']]) %>
+          </div>
+          <div class="field margin-top-20">
+            <%= f.input :password, :required => true, :label => I18n.t('customers.password') %>
+          </div>
+          <%= f.input :password_confirmation, :required => true, :label => I18n.t('customers.password_confirmation') %>
+          <div class="field">
+            <%= label_tag :coupon, I18n.t('devise.registrations.new.promotional_coupon_if_any') %>
+            <%= text_field_tag :coupon, nil, name: nil %>
+          </div>
+          <div class="field margin-top-20">
+            <%= label_tag :accept_terms, I18n.t('devise.registrations.new.accept_terms'), :class => 'inline_label' %> <a data-toggle="modal" data-target="#terms_modal" class="pointer"><%= I18n.t('devise.registrations.new.terms') %></a>.
+            <%= check_box_tag :accept_terms %>
+            <%= render :partial => 'terms_modal' %>
+          </div>
+        </div>
+        <div class="form-actions">
+          <div class="inactive_submit_box"></div>
+            <% unless Rails.env.test? %>
+              <%= f.button :submit, I18n.t('auth.sign_up'), :class => 'btn-primary', :disabled => 'disabled' %>
+            <% else %>
+              <%= f.button :submit, I18n.t('auth.sign_up'), :class => 'btn-primary' %>
+            <% end %>
+        </div>
+        <div class="explanation" id="terms_explanation">
+          <div class="fluid-explanation-inner">
+            <%= I18n.t('devise.registrations.new.please_accept_terms') %> <%= I18n.t('devise.registrations.new.terms') %>.
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <div class="span4">
+      <div class="balloon odd">
+        <%= I18n.t('home.index.title1') %>
+      </div>
+      <div class="balloon even">
+        <%= I18n.t('home.index.title2') %>
+      </div>
+      <div class="balloon odd">
+        <%= I18n.t('home.index.title3') %>
+      </div>
+      <div class="balloon even">
+        <%= I18n.t('home.index.title4') %>
+      </div>
+      <div class="balloon odd">
+        <%= I18n.t('home.index.title5') %>
+      </div>
+    </div>
+    <div class="span5">
+      <div class="row">
+        <div id="registration_slides_1" class="registration_slides carousel slide">
+          <div class="carousel-inner rounded_corners">
+            <div class="active item">
+              <img src="/images/carousel_item_2.jpg">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div id="registration_slides_1" class="registration_slides carousel slide">
+          <div class="carousel-inner rounded_corners">
+            <div class="active item">
+              <img src="/images/carousel_item_4.jpg">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <%= render "devise/shared/links" %>
+  </div>
+</div>

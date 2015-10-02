@@ -1,0 +1,11 @@
+<div class="span6 well">
+	<%= simple_form_for(@staff_member) do |f| %>
+	  <div class="form-inputs">
+	  	<%= render :partial => 'form_inputs', :locals => { :f => f } %>
+	  </div>
+	  <div class="form-actions">
+	  	<%= link_to I18n.t('back'), staff_members_path, :class => 'btn btn-secondary' %>
+	    <%= f.button :submit, I18n.t('update'), :class => 'btn btn-success' %>
+	  </div>
+	<% end %>
+</div>

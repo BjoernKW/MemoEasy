@@ -1,0 +1,641 @@
+en:
+  date:
+    first_day_of_week: 0
+    abbr_day_names:
+    - Sun
+    - Mon
+    - Tue
+    - Wed
+    - Thu
+    - Fri
+    - Sat
+    abbr_day_names_monday_first:
+    - Mon
+    - Tue
+    - Wed
+    - Thu
+    - Fri
+    - Sa
+    - Sun
+    abbr_day_names_for_calendar:
+    - Sun
+    - Mon
+    - Tue
+    - Wed
+    - Thu
+    - Fri
+    - Sat
+    abbr_month_names:
+    - 
+    - Jan
+    - Feb
+    - Mar
+    - Apr
+    - May
+    - Jun
+    - Jul
+    - Aug
+    - Sep
+    - Oct
+    - Nov
+    - Dec
+    day_names:
+    - Sunday
+    - Monday
+    - Tuesday
+    - Wednesday
+    - Thursday
+    - Friday
+    - Saturday
+    day_names_monday_first:
+    - Monday
+    - Tuesday
+    - Wednesday
+    - Thursday
+    - Friday
+    - Saturday
+    - Sunday
+    formats:
+      default: ! '%d-%m-%Y'
+      long: ! '%d %B, %Y'
+      short: ! '%d %b'
+      short_digital: ! '%d.%m.%Y'
+      month_year: ! '%B %Y'
+    month_names:
+    - 
+    - January
+    - February
+    - March
+    - April
+    - May
+    - June
+    - July
+    - August
+    - September
+    - October
+    - November
+    - December
+    order:
+    - :day
+    - :month
+    - :year
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: about 1 hour
+        other: about %{count} hours
+      about_x_months:
+        one: about 1 month
+        other: about %{count} months
+      about_x_years:
+        one: about 1 year
+        other: about %{count} years
+      almost_x_years:
+        one: almost 1 year
+        other: almost %{count} years
+      half_a_minute: half a minute
+      less_than_x_minutes:
+        one: less than a minute
+        other: less than %{count} minutes
+      less_than_x_seconds:
+        one: less than 1 second
+        other: less than %{count} seconds
+      over_x_years:
+        one: over 1 year
+        other: over %{count} years
+      x_days:
+        one: 1 day
+        other: ! '%{count} days'
+      x_minutes:
+        one: 1 minute
+        other: ! '%{count} minutes'
+      x_months:
+        one: 1 month
+        other: ! '%{count} months'
+      x_seconds:
+        one: 1 second
+        other: ! '%{count} seconds'
+    prompts:
+      day: Day
+      hour: Hour
+      minute: Minute
+      month: Month
+      second: Seconds
+      year: Year
+  errors: &errors
+    format: ! '%{attribute} %{message}'
+    messages:
+      accepted: must be accepted
+      blank: can't be blank
+      confirmation: doesn't match confirmation
+      empty: can't be empty
+      equal_to: must be equal to %{count}
+      even: must be even
+      exclusion: is reserved
+      greater_than: must be greater than %{count}
+      greater_than_or_equal_to: must be greater than or equal to %{count}
+      inclusion: is not included in the list
+      invalid: is invalid
+      less_than: must be less than %{count}
+      less_than_or_equal_to: must be less than or equal to %{count}
+      not_a_number: is not a number
+      not_an_integer: must be an integer
+      odd: must be odd
+      taken: has already been taken
+      improbable_phone: is invalid
+      record_invalid: ! 'Validation failed: %{errors}'
+      too_long:
+        one: is too long (maximum is 1 character)
+        other: is too long (maximum is %{count} characters)
+      too_short:
+        one: is too short (minimum is 1 character)
+        other: is too short (minimum is %{count} characters)
+      wrong_length:
+        one: is the wrong length (should be 1 character)
+        other: is the wrong length (should be %{count} characters)
+    template:
+      body: ! 'There were problems with the following fields:'
+      header:
+        one: 1 error prohibited this %{model} from being saved
+        other: ! '%{count} errors prohibited this %{model} from being saved'
+  helpers:
+    select:
+      prompt: Please select
+    submit:
+      create: Create %{model}
+      submit: Save %{model}
+      update: Update %{model}
+  number:
+    currency:
+      format:
+        delimiter: ! ','
+        format: ! '%u%n'
+        precision: 2
+        separator: .
+        significant: false
+        strip_insignificant_zeros: false
+        unit: £
+    format:
+      delimiter: ! ','
+      precision: 3
+      separator: .
+      significant: false
+      strip_insignificant_zeros: false
+    human:
+      decimal_units:
+        format: ! '%n %u'
+        units:
+          billion: Billion
+          million: Million
+          quadrillion: Quadrillion
+          thousand: Thousand
+          trillion: Trillion
+          unit: ''
+      format:
+        delimiter: ''
+        precision: 3
+        significant: true
+        strip_insignificant_zeros: true
+      storage_units:
+        format: ! '%n %u'
+        units:
+          byte:
+            one: Byte
+            other: Bytes
+          gb: GB
+          kb: KB
+          mb: MB
+          tb: TB
+    percentage:
+      format:
+        delimiter: ''
+    precision:
+      format:
+        delimiter: ''
+  support:
+    array:
+      last_word_connector: ! ', and '
+      two_words_connector: ! ' and '
+      words_connector: ! ', '
+  time:
+    am: am
+    formats:
+      default: ! '%a, %d %b %Y %H:%M:%S %z'
+      long: ! '%d %B, %Y %H:%M'
+      short: ! '%d %b %H:%M'
+      short_digital: ! '%d.%m.%Y %H:%M'
+      short_date: ! '%d.%m.%Y'
+      system_date_picker: ! '%Y-%m-%d'
+      short_time: ! '%H:%M'
+      time: ! '%H:%M %p'
+    pm: pm
+  
+  activemodel:
+    errors:
+      <<: *errors
+  activerecord:
+    errors:
+      <<: *errors
+    models:
+      appointment: "Appointment"
+      assignment: "Assignment"
+      company: "Company"
+      customer: "Customer"
+      service: "Service"
+      slot: "Availability"
+      staff_member: "Staff member"
+      user: "User"
+
+  copyright: '&copy; Copyright %{company_name} %{current_year}.'
+  rights_reserved: 'All Rights Reserved.'
+
+  company_name: "SimDuctive UG (haftungsbeschränkt)"
+  app_name: "MemoEasy"
+  app_name_part1: "Memo"
+  app_name_part2: "Easy"
+  domain_name: "memoeasy.com"
+  about: "About"
+  legal: "Legal stuff"
+
+  auth:
+    sign_up: "Sign up"
+    log_in: "Log in"
+    log_out: "Log out"
+    are_you_sure: "Are you sure you want to logout?"
+    login: "eMail"
+    password: "Password"
+    remember_me: "Stay signed in"
+    register: "Register"
+    login_successful: "Login successful!"
+    logout_successful: "Logout successful!"
+    must_be_logged_in: "You must be logged in to access this page."
+    must_be_logged_out: "You must be logged out to access this page."
+    leave_password_blank: "Change password?"
+    confirm_password: "Confirm changes"
+    password_forgotten: "Forgot your password?"
+    confirmation_instructions_lost: "Didn't receive confirmation instructions?"
+    unlock_instructions_lost: "Didn't receive unlock instructions?"
+    log_in_with_provider: "Log in with %{provider}"
+    not_authorized_as_administrator: "Not authorized as an administrator."
+    resend_confirmation_instructions: "Resend confirmation instructions"
+    resend_unlock_instructions: "Resend unlock instructions"
+    change_password: "Change your password"
+    unlock_account: "Unlock my account"
+    confirm: "Confirm"
+    errors:
+      confirmation_token: "The confirmation link is invalid. Please contact us."
+      unlock_token: "The confirmation link is invalid. Please contact us."
+
+  admin_link_title: "Admin"
+  account:
+    edit: "Edit account"
+
+  user:
+    updated: "User updated."
+    unable_to_update_user: "Unable to update user."
+    deleted: "User deleted."
+    unable_to_delete_user: "Can't delete yourself."
+
+  info: "Info"
+  user_info: "User info"
+  back: "back"
+  save: "Save"
+  submit: "Submit"
+  cancel: "Cancel"
+  search: "Search"
+  back_to_list: "Back to list"
+  close: "Close"
+  change: "Change"
+  remove: "Remove"
+  select_file: "Select file"
+  or: "or"
+  format: "Format"
+  copy: "Copy"
+
+  show: "Show"
+  edit: "Edit"
+  update: "Update"
+  delete: "Delete"
+  destroy: "Delete"
+  view_all: "View all"
+  confirm: "Are you sure?"
+  previous: "Previous"
+  next: "Next"
+  is_invalid: "is invalid"
+  new: "new"
+  
+  search_placeholder: "Search ..."
+  please_choose: "Please choose ..."
+
+  modal:
+    confirmed_text: "Yes, I'm sure."
+    message_body: "Do you really want to delete this entry?"
+
+  plans:
+    limited_to_plan: "Access limited to %{plan_name} subscribers."
+    admin: "Admin"
+    silver: "Starter"
+    gold: "Professional"
+    platinum: "Business"
+    starter: "Starter"
+    professional: "Professional"
+    business: "Business"
+    select_plan: "Please select a plan below"
+    unable_to_update_plan: "Unable to update plan."
+    updated_plan: "Updated plan."
+    upgrade: "Upgrade plan"
+
+  content:
+    dashboard:
+      header: "Dashboard"
+    settings:
+      header: "Settings"
+    contact:
+      header: "Contact"
+      line1: ""
+      line2: ""
+      line3: ""
+      line4: "website:"
+      website: ""
+      line5: "eMail:"
+      email: ""
+      line6: "phone:"
+      phone: ""
+      line7: "managing director:"
+      managing_director: ""
+      line8: "company register:"
+      company_register: ""
+      line9: "VAT ID:"
+      vat_id: ""
+      line10: "tax ID:"
+      tax_id: ""
+      disclaimer: ""
+    terms:
+      header: "Terms And Conditions"
+      short: "Terms"
+      content: ""
+
+  devise:
+    registrations:
+      edit:
+        card: "Card"
+        need_to_use_a_different_credit_card: "Need to use a different credit card?"
+        unhappy: "Unhappy?"
+        change_card: "Change card"
+        subscription_plan: "Plan"
+        change_plan: "Change plan"
+        cancel_my_account: "Cancel my account"
+      new:
+        subscription_plan: "Plan"
+        credit_card_acceptance_is_pending: "Credit card acceptance is pending."
+        country: "Country"
+        credit_card_number: "Credit Card Number"
+        card_security_code_cvv: "Card Security Code (CVV)"
+        card_expiration: "Card Expiration"
+        promotional_coupon_if_any: "Promotional Coupon (if any)"
+        accept_terms: "Yes, I accept the"
+        terms: "terms"
+        please_accept_terms: "Please first accept the"
+
+  home:
+    index:
+      title1: "Get more revenue through better availability"
+      description1: ""
+      title2: "Acquire more customers."
+      description2: ""
+      title3: "Reduce no-shows with automatic reminders."
+      description3: ""
+      title4: "Optimize your capacity."
+      description4: ""
+      title5: "Easily book appointments online."
+      description5: ""
+      silver: "Starter"
+      silver_feature1: "100 appointments / month"
+      silver_feature2: "SMS or eMail reminders"
+      silver_feature3: "public page for your customers"
+      silver_feature4: "1 calendar"
+      silver_price: "EUR 29 EUR / month"
+      gold: "Professional"
+      gold_feature1: "as Starter plan"
+      gold_feature2: "+ 300 appointments / month"
+      gold_feature3: "+ your own logo on your public page"
+      gold_feature4: "+ 5 calendars"
+      gold_price: "EUR 99 / month"
+      platinum: "Business"
+      platinum_feature1: "as Professional plan"
+      platinum_feature2: "+ 1,000 appointments / month"
+      platinum_feature3: "+ custom eMail templates"
+      platinum_feature4: "+ 25 calendars"
+      platinum_price: "EUR 299 / month"
+      subscribe: "Subscribe"
+
+  user_mailer:
+    expire_email:
+      subscription_cancelled: "%{domain_name} subscription cancelled"
+      your_subscription_has_been_cancelled: "Your subscription has been cancelled."
+      we_are_sorry_to_see_you_go: "We are sorry to see you go. We'd love to have you back."
+      visit_anytime: "Visit %{domain_name} anytime to create a new subscription."
+    confirm_email:
+      please_confirm_subscription: "Welcome to %{domain_name}"
+  subscriptions:
+    errors:
+      create: "Unable to create your subscription. %{message}"
+      update: "Unable to update your subscription. %{message}"
+      cancel: "Unable to cancel your subscription. %{message}"
+
+  validations:
+    alphanumerics: "must be lowercase alphanumerics only"
+    exceeds_32_characters: "exceeds maximum of 32 characters"
+    not_available: "is not available"
+
+  successfully_created: "%{model_name} was created."
+  successfully_updated: "%{model_name} was updated."
+  creation_failed: "%{model_name} could not be created."
+
+  end_time_is_before_start_time: "End is before beginning."
+  public_site: "Public site"
+  or: "or"
+  general_information: "Information"
+  personal_information: "Personal information"
+  all: "all"
+
+  appointments:
+    info: "Information"
+    new: "New appointment"
+    edit: "Edit appointment"
+    create: "Create appointment"
+    created: "Appointment created"
+    updated: "Appointment updated"
+    list: "Appointments"
+    single: "Appointment"
+    starts_at_day: "Day"
+    starts_at_time: "Time"
+    starts_at: "Begin"
+    ends_at: "End"
+    remind_at: "Reminder"
+    none_available: "There is no appointment available for the selected time. Please select a different time."
+    thanks: "Your appointment has been saved. Thanks for doing business with us!"
+    embed_code: "Code for your website"
+    copy: "Please copy this code to the clipboard."
+    available: "appointments available"
+    few_left: "few appointments left"
+    none_available: "no appointments available"
+    history: "Past appointments"
+    repeat_in_days: "Repeat interval in days"
+    repeat_explanation: "Set this value to something greater than 0 in order to create a recurring appointment."
+    repeat_interval: "Recurs"
+    days: "after %{days} days"
+    ics: "Appointments as iCalendar file (.ics)"
+    ics_link: "Subscription link for your calendar app"
+    ics_link_title: "iCalendar link"
+    ics_link_explanation: "Copy this link to subscribe to your appointments in your calendar app:"
+    too_many: "You've reached the maximum amount of appointments per month for your plan. Please choose a bigger plan to get more appointments."
+  assignments:
+    new: "New assignment"
+    edit: "Edit assignment"
+    create: "Create assignment"
+    created: "Assignment created"
+    list: "Assignments"
+    single: "Assignment"
+    slot: "Availability"
+    resource: "Resource"
+  companies:
+    name: "Name"
+    street_address: "Street / number"
+    postal_code: "Postal code"
+    city: "City"
+    phone_number: "Phone number"
+    vat_id: "VAT ID"
+    website: "Website"
+    logo: "Logo address ( http:// ... )"
+    send_appointment_confirmation: "Appointment confirmation via eMail"
+  customers:
+    new: "New customer"
+    edit: "Edit customer"
+    create: "Create customer"
+    create_multiple: "Create multiple customers"
+    created: "Customer created"
+    will_be_created: "Customer will be created"
+    list: "Customers"
+    single: "Customer"
+    name: "Name"
+    first_name: "First name"
+    last_name: "Last name"
+    company: "Company"
+    reminder_interval_in_minutes: "Remind how many minutes before appointment?"
+    reminder_interval_in_hours: "Remind how many hours before appointment?"
+    reminder_type: "How do you want your customers to be reminded of appointments?"
+    remind_via_email: "eMail"
+    remind_via_sms: "SMS"
+    use_html_email: "Remind via HTML eMail"
+    use_text_email: "Remind via eMail"
+    use_text_message: "Remind via SMS"
+    email: "eMail address"
+    mobile_phone: "Mobile phone number"
+    password: "Password"
+    password_confirmation: "Password confirmation"
+    current_password: "Current password"
+    customer_link: "Customer link"
+    send_customer_link: "Send via eMail"
+    confirmed: "confirmed"
+    messaging_details: "Please enter at least one way of contact."
+    link_explanation: "You can give this link to your customer. When the customer clicks on this link the appointment form is pre-filled with the customer's data:"
+    csv_file:
+      select_csv_file: "Select CSV file"
+      example_line: "First name,Last name,eMail address,Mobile phone number"
+  services:
+    new: "New service"
+    edit: "Edit service"
+    create: "Create service"
+    created: "Service created"
+    will_be_created: "Service will be created"
+    list: "Services"
+    single: "Service"
+    name: "Name"
+    duration: "Duration in minutes"
+  slots:
+    new: "New opening hours"
+    edit: "Edit opening hours"
+    create: "Create opening hours"
+    created: "Opening hours created"
+    list: "Opening hours"
+    single: "Opening hours"
+    starts_at: "Starts at"
+    ends_at: "Ends at"
+    weekday: "Weekday"
+    end_time_is_before_start_time: "The end must not be before the beginning."
+    blocker: "Blocker"
+    blockers: "Blockers"
+    is_blocker: "Blocker?"
+  staff_members:
+    new: "New staff member"
+    edit: "Edit staff member"
+    create: "Create staff member"
+    created: "Staff member created"
+    will_be_created: "Staff member will be created"
+    list: "Staff members"
+    single: "Staff member"
+    name: "Name"
+    colour: "Colour"
+    too_many: "You've reached the maximum amount of calendars for your plan. Please choose a bigger plan to get more calendars."
+  users:
+    username: "User name"
+    email: "eMail address"
+    registered: "Registered"
+    role: "Role"
+    change_role: "Change role "
+    list: "Users"
+    user:
+      change_role: "Change role "
+  confirmations:
+    title: "Confirmation of your registration"
+    content: "Thanks for registering! You can %{log_in}."
+    customer_email: "Thanks a lot. You will now receive reminders for your appointments at %{company} via eMail."
+    customer_email_failed: "Unfortunately, we couldn't confirm your eMail address."
+    log_in: "now log in"
+  text_messages:
+    reminder: "Appointment at %{company}. Begin: %{starts_at}. Duration: %{duration} minutes."
+    customer_confirmation: "You now have an account at %{company}. Please answer this message with Yes in order to receive appointment reminders via SMS."
+    account_confirmed: "Thanks a lot. You will now receive reminders for your appointments at %{company} via SMS."
+  emails:
+    registration_confirmation:
+      body_text_1: "Hello %{customer},"
+      body_text_2: "Please click here for confirming your eMail address:"
+      body_text_2: "If this link doesn't work please copy the following link into the address bar of your browser:"
+    reset_password:
+      body_text_1: "Hello %{customer},"
+      body_text_2: "Someone has requested a link to change your password. You can do this through the link below."
+      body_text_3: "If you didn't request this, please ignore this email."
+      body_text_4: "Your password won't change until you access the link above and create a new one."
+    unlock:
+      body_text_1: "Hello %{customer},"
+      body_text_2: "Your account has been locked due to an excessive number of unsuccessful sign in attempts."
+      body_text_3: "Click the link below to unlock your account:"
+    reminder:
+      subject: "Reminder: Your appointment at %{company}"
+      text_body: "Hello %{customer},\n\nyou soon have an appointment at %{company}.\n\nThe appointment starts %{starts_at} and will take %{duration} minutes. %{staff_member} will be attending to you.\n\nFor further company information please click here: %{public_url}"
+      html_body: "Hello %{customer},<br><br>you soon have an appointment at %{company}.<br><br>The appointment starts %{starts_at} and will take %{duration} minutes. %{staff_member} will be attending to you.<br><br>For further company information please click here: %{public_url}"
+    appointment:
+      subject: "Your appointment at %{company}"
+      body_text_1: "Hello %{customer},"
+      body_text_2: "you soon have an appointment at %{company}."
+      body_text_3: "The appointment starts %{starts_at} and will take %{duration} minutes. %{staff_member} will be attending to you."
+      body_text_4: "For further company information please click here: %{public_url}"
+    customer_link:
+      subject: "Your personal link at %{company}"
+      text_body: "Hello %{customer},\n\nthis is your personal link: %{public_url}"
+      html_body: "Hello %{customer},<br><br>this is your personal link: %{public_url}"
+    customer_confirmation:
+      subject: "Your personal account at %{company}"
+      text_body: "Hello %{customer},\n\nplease click here to confirm that we may remind you about your appointments via eMail: %{confirmation_url}"
+      html_body: "Hello %{customer},<br><br>please click here to confirm that we may remind you about your appointments via eMail: %{confirmation_url}"
+    appointment_confirmation:
+      subject: "New appointment with %{customer}"
+      body_text_1: "Hello,"
+      body_text_2: "%{customer} created a new appointment."
+      body_text_3: "The appointment starts %{starts_at} and will take %{duration} minutes. %{staff_member} is reponsible for this appointment."
+
+  tutorial:
+    todo: "First steps"
+  screencast:
+    title: "MemoEasy - Eine kurze Einführung"

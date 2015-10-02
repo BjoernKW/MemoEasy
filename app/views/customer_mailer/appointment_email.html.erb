@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+  	<p>
+		<%= I18n.t('emails.appointment.body_text_1', :customer => @appointment.customer.name) %>
+	</p>
+	<p>
+		<%= I18n.t('emails.appointment.body_text_2', :company => @appointment.company.name) %>
+	</p>
+	<p>
+		<%= I18n.t('emails.appointment.body_text_3', :starts_at => I18n.l(@appointment.starts_at), :duration => @appointment.service.duration, :staff_member => @appointment.staff_member.name) %>
+	</p>
+	<p>
+		<%= I18n.t('emails.appointment.body_text_4', :public_url => @public_url) %>
+    </p>
+  </body>
+</html>

@@ -1,0 +1,9 @@
+<div class="starts_at_time">
+  <label><%= I18n.t('appointments.starts_at_time') %></label>
+  <ul id="starts_at_time_slots" class="no_bullets no_margin">
+    <% available_time_slots.each do |slot| %>
+      <li class="slot_element alert alert-success" data-starts-at="<%= slot %>"><%= I18n.l(slot, :format => :short_time) %></li>
+    <% end %>
+  </ul>
+  <%= f.input :starts_at_time, :as => :hidden %>
+</div>

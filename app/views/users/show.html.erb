@@ -1,0 +1,15 @@
+<%= render 'layouts/sub_navigation' %>
+
+<div class="container-fluid">
+	<h2><%= I18n.t('users.single') %></h2>
+	<div class="row">
+		<div class="span6 well">
+			<p>
+				<%= I18n.t('users.username') %>: <%= @user.name %>
+			</p>
+			<p>
+				<%= I18n.t('users.email') %>: <%= @user.email if @user.email %>
+			</p>
+		</div>
+	</div>
+</div>

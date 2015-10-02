@@ -1,0 +1,20 @@
+<div class="fancy_date_picker">
+  <div id="appointment_starts_at_calendar" class="pick_a_date">
+    <%= I18n.t('appointments.starts_at_day') %>
+  </div>
+  <div class="explanation" id="date_picker_explanation">
+    <div class="explanation-inner">
+      <div><span class="alert alert-success"><%= I18n.t('appointments.available') %></span></div><br>
+      <% if user_signed_in? %>
+        <div><span class="alert"><%= I18n.t('appointments.few_left') %></span></div><br>
+      <% end %>
+      <div><span class="alert alert-error"><%= I18n.t('appointments.none_available') %></span></div>
+    </div>
+  </div>
+</div>
+<div class="system_date_picker">
+  <%= f.input :starts_at_picker, :label => I18n.t('appointments.starts_at_day'), :input_html => { :type => :date, :class => 'starts_at', :value => appointment.starts_at ? I18n.l(appointment.starts_at, :format => :system_date_picker) : '' } %>
+</div>
+<%= f.input :starts_at, :as => :hidden %>
+<span id="starts_at_errors" class="error_messages" style="display: none;"></span>
+      

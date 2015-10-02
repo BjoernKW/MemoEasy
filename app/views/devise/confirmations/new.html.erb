@@ -1,0 +1,27 @@
+<h2><%= I18n.t('auth.resend_confirmation_instructions') %></h2>
+
+<%= render 'layouts/messages' %>
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="span4 well">
+			<%= simple_form_for(resource, :as => resource_name, :url => confirmation_path(resource_name), :html => { :method => :post }) do |f| %>
+			  <%= f.error_notification %>
+			  <% resource.errors.each do |attribute| %>
+			  	<p><%= I18n.t('auth.errors.' + attribute.to_s) %></p>
+		    <% end %>
+
+			  <div class="form-inputs">
+			    <%= f.input :email, :label => I18n.t('auth.login'), :required => true, :autofocus => true %>
+			  </div>
+
+			  <div class="form-actions">
+			    <%= f.button :submit, I18n.t('submit'), :class => 'btn btn-primary' %>
+			  </div>
+			<% end %>
+		</div>
+	</div>
+	<div class="row">
+		<%= render "devise/shared/links" %>
+	</div> 
+</div>

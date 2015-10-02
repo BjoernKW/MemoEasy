@@ -1,0 +1,62 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="span well">
+      <div class="existing_customer existing_entity">
+      	<%= f.association :customer, :collection => Customer.where(:company_id => current_user.company.id).load, :label => I18n.t('activerecord.models.customer'), :input_html => { 'data-placeholder' => I18n.t('please_choose') } %>
+        <div class="new_button"><a class="new_customer_button btn btn-mini btn-success"><%= I18n.t('customers.new') %></a></div>
+      </div>
+      <span id="customer_errors" class="error_messages" style="display: none;"></span>
+      <div style="display: none;" class="nested_fields_label new_customer_label"><%= I18n.t('customers.single') %></div>
+      <div class="new_customer nested_fields" style="display: none;">
+        <%= f.simple_fields_for :customer do |c| %>
+          <%= render :partial => 'customers/form_inputs', :locals => { :f => c } %>
+        <% end %>
+      </div>
+      <div class="existing_service existing_entity">
+      	<%= f.association :service, :collection => Service.where(:company_id => current_user.company.id).load, :label => I18n.t('activerecord.models.service'), :input_html => { 'data-placeholder' => I18n.t('please_choose') } %>
+        <div class="new_button"><a class="new_service_button btn btn-mini btn-success"><%= I18n.t('services.new') %></a></div>
+      </div>
+      <span id="service_errors" class="error_messages" style="display: none;"></span>
+      <div style="display: none;" class="nested_fields_label new_service_label"><%= I18n.t('services.single') %></div>
+      <div class="new_service nested_fields" style="display: none;">
+        <%= f.simple_fields_for :service do |s| %>
+          <%= render :partial => 'services/form_inputs', :locals => { :f => s } %>
+        <% end %>
+      </div>
+      <div id="available_staff_members">
+        <div class="existing_staff_member existing_entity">
+          <%= f.association :staff_member, :collection => StaffMember.where(:company_id => current_user.company.id).load, :label => I18n.t('activerecord.models.staff_member'), :input_html => { 'data-placeholder' => I18n.t('all'), :class => 'resettable' } %>
+          <div class="new_button"><a class="new_staff_member_button btn btn-mini btn-success"><%= I18n.t('staff_members.new') %></a></div>
+        </div>
+      </div>
+      <span id="staff_member_errors" class="error_messages" style="display: none;"></span>
+      <div style="display: none;" class="nested_fields_label new_staff_member_label"><%= I18n.t('staff_members.single') %></div>
+      <div class="new_staff_member nested_fields" style="display: none;">
+        <%= f.simple_fields_for :staff_member do |s| %>
+          <%= render :partial => 'staff_members/form_inputs', :locals => { :f => s } %>
+        <% end %>
+      </div>
+    </div>
+    <div class="span well">
+      <%= render :partial => 'date_picker', :locals => { :f => f, :appointment => @appointment } %>
+      <div class="margin-top-20" id="recurring_appointment">
+        <%= f.input :repeat_in_days, :label => I18n.t('appointments.repeat_in_days') %><span id="repeat_in_days_errors" class="error_messages" style="display: none;"></span>
+      </div>
+      <div class="explanation" id="repeat_explanation">
+        <div class="fluid-explanation-inner">
+          <%= I18n.t('appointments.repeat_explanation') %>
+        </div>
+      </div>
+    </div>
+    <div class="span well">
+      <%= render :partial => 'time_slots', :locals => { :f => f, :available_time_slots => @available_time_slots } %>
+    </div>
+  </div>
+</div>
+<div id="customer_will_be_created" style="display: none;"><%= I18n.t('customers.will_be_created') %></div>
+<div id="service_will_be_created" style="display: none;"><%= I18n.t('services.will_be_created') %></div>
+<div id="staff_member_will_be_created" style="display: none;"><%= I18n.t('staff_members.will_be_created') %></div>
+<div id="select_prompt" style="display: none;"><%= I18n.t('please_choose') %></div>
+
+<div data-initial-date="<%= appointment.starts_at ? I18n.l(appointment.starts_at, :format => :short_date) : I18n.l(DateTime.now, :format => :short_date) %>" id="date_values" style="data_container"></div>
+<div data-days="<%= @disabled_days_of_week.to_json %>" id="disabled_days_of_week" style="data_container"></div>

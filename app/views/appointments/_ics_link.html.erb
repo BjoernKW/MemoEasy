@@ -1,0 +1,13 @@
+<div id="ics_link_modal" class="modal hide fade" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="customer_link_modal_header"><%= I18n.t('appointments.ics_link_title') %></h3>
+  </div>
+  <div class="modal-body word-break">
+    <%= I18n.t('appointments.ics_link_explanation') %><br><br>
+  	<%= link_to(ics_link, ics_link) %>
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true"><%= I18n.t('close') %></button>
+  </div>
+</div>

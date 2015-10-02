@@ -1,0 +1,41 @@
+<%= render 'layouts/messages' %>
+
+<div class="plans">
+  <div class="span3 well plan_wrapper">
+    <div class="plan silver"><h2><%= I18n.t('home.index.silver') %></h2></div>
+    <ul class="unstyled">
+      <li><%= I18n.t('home.index.silver_feature1') %></li>
+      <li><%= I18n.t('home.index.silver_feature2') %></li>
+      <li><%= I18n.t('home.index.silver_feature3') %></li>
+      <li><%= I18n.t('home.index.silver_feature4') %></li>
+    </ul>
+    <h3><%= I18n.t('home.index.silver_price') %></h3>
+    <%= link_to I18n.t('home.index.subscribe'), new_user_registration_path(:plan => 'starter'), :class => 'btn btn-brand' %>
+  </div>
+  <div class="span3 well featured plan_wrapper">
+    <div class="plan gold"><h2><%= I18n.t('home.index.gold') %></h2></div>
+    <ul class="unstyled">
+      <li><strong><%= I18n.t('home.index.gold_feature1') %></strong></li>
+      <li><%= I18n.t('home.index.gold_feature2') %></li>
+      <li><%= I18n.t('home.index.gold_feature3') %></li>
+      <li><%= I18n.t('home.index.gold_feature4') %></li>
+    </ul>
+    <h3><%= I18n.t('home.index.gold_price') %></h3>
+    <%= link_to I18n.t('home.index.subscribe'), new_user_registration_path(:plan => 'professional'), :class => 'btn btn-brand-dark' %>
+  </div>
+  <div class="span3 well plan_wrapper">
+    <div class="plan platinum"><h2><%= I18n.t('home.index.platinum') %></h2></div>
+    <ul class="unstyled">
+      <li><strong><%= I18n.t('home.index.platinum_feature1') %></strong></li>
+      <li><%= I18n.t('home.index.platinum_feature2') %></li>
+      <li><%= I18n.t('home.index.platinum_feature3') %></li>
+      <li><%= I18n.t('home.index.platinum_feature4') %></li>
+    </ul>
+    <h3><%= I18n.t('home.index.platinum_price') %></h3>
+    <%= link_to I18n.t('home.index.subscribe'), new_user_registration_path(:plan => 'business'), :class => 'btn btn-brand' %>
+  </div>
+</div>
+
+<div id="screencast_link">
+  <a data-toggle="modal" data-target="#screencast_modal" class="pointer"><%= I18n.t('screencast.title') %></a>
+</div>

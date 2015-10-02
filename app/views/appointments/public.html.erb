@@ -1,0 +1,115 @@
+<%= render 'layouts/sub_navigation' %>
+
+<% unless @company.nil? %>
+	<div id="customer_company_information" class="pull-left">
+		<h1><%= @company.website_url.blank? ? @company.name : link_to(@company.name, @company.website_url) %></h1>
+		<h2 class="address"><a href="http://maps.google.com/?q=<%= u @address %>" target="_blank"><%= @address %></a></h2>
+	</div>
+	<div id="customer_company_logo">
+		<% unless @company.website_url.blank? || !@company.users.first.abilities[:custom_logo] %>
+			<% unless @company.website_url.blank? %>
+				<%= link_to @company.website_url do %>
+					<img src="<%= @company.logo_url %>" alt="<%= @company.name %>" title="<%= @company.name %>" border="0">
+				<% end %>
+			<% else %>
+				<img src="<%= @company.logo_url %>" alt="<%= @company.name %>" title="<%= @company.name %>" border="0">
+			<% end %>
+		<% end %>
+	</div>
+	<div class="row clear_both">
+		<div class="tabbable span">
+			<ul class="nav nav-tabs">
+				<li class="active">
+					<a href="#appointment_tab" data-toggle="tab"><%= I18n.t('appointments.single') %></a>
+				</li>
+				<li><a href="#info_tab" data-toggle="tab"><%= I18n.t('appointments.info') %></a></li>
+			</ul>
+			<div class="tab-content">
+			  <div class="tab-pane fade active in" id="appointment_tab">
+					<%= simple_form_for(@appointment) do |f| %>
+						<%= f.input :from_public_page, :as => :hidden %>
+						<%= f.input :customer_id, :as => :hidden %>
+						<%= f.input :show_new_staff_member, as: :hidden %>
+						<%= f.association :company, :as => :hidden, input_html: { value: @company.id } %>
+						<%= f.error_notification %>
+						<div class="alert alert-error" id="appointment_not_available" style="display: none;">
+				      <a class="close" data-dismiss="alert">&#215;</a>
+				      <div><%= I18n.t('appointments.none_available') %></div>
+					  </div>
+					  <div class="well">
+							<%= f.button :submit, I18n.t('update'), :class => 'btn btn-success' %>
+						</div>
+						<div class="form-inputs">
+							<div class="container-fluid">
+							  <div class="row">
+							    <div class="span well">
+										<div class="existing_service existing_entity">
+											<%= f.association :service, :collection => Service.where(:company_id => @company.id).load, :label => I18n.t('activerecord.models.service'), :input_html => { 'data-placeholder' => I18n.t('please_choose') } %>
+										</div>
+										<span id="service_errors" class="error_messages" style="display: none;"></span>
+										<div id="available_staff_members">
+										  <div class="existing_staff_member existing_entity">
+										    <%= f.association :staff_member, :collection => StaffMember.where(:company_id => @company.id).load, :label => I18n.t('activerecord.models.staff_member'), :input_html => { 'data-placeholder' => I18n.t('all') } %>
+										  </div>
+										</div>
+										<div class="new_customer">
+								    	<h3><%= I18n.t('personal_information') %></h3>
+										  <%= f.simple_fields_for :customer do |c| %>
+										    <%= render :partial => 'customers/form_inputs', :locals => { :f => c } %>
+										  <% end %>
+										</div>
+										<span id="staff_member_errors" class="error_messages" style="display: none;"></span>
+										<div id="select_prompt" style="display: none;"><%= I18n.t('please_choose') %></div>
+										<span id="customer_errors" class="error_messages" style="display: none;"></span>
+									</div>
+	  							<div class="span well">
+										<%= render :partial => 'date_picker', :locals => { :f => f, :appointment => @appointment } %>
+					    		</div>
+							    <div class="span well">
+							      <%= render :partial => 'time_slots', :locals => { :f => f, :available_time_slots => @available_time_slots } %>
+							    </div>
+						  	</div>
+					  	</div>
+						</div>
+						<div class="well">
+							<%= f.button :submit, I18n.t('update'), :class => 'btn btn-success' %>
+						</div>
+					<% end %>
+				</div>
+				<div class="tab-pane fade" id="info_tab">
+					<div class="row">
+						<div class="pull-left span6">
+							<a href="http://maps.google.com/?q=<%= u @address %>" target="_blank"><img src="http://maps.googleapis.com/maps/api/staticmap?markers=<%= @map_markers %>&amp;zoom=14&amp;size=420x220&amp;sensor=false"></a>
+						</div>
+						<div class="pull-right span4">
+							<h3><%= I18n.t('slots.list') %></h3>
+							<hr>
+							<ul class="no_bullets no_margin">
+								<% @slots.each do |slot| %>
+									<li>
+					    			<strong><%= I18n.t('date.day_names')[slot.weekday] %></strong>: <%= slot.display_time_component(slot.starts_at_hour) %>:<%= slot.display_time_component(slot.starts_at_minute) %> - <%= slot.display_time_component(slot.ends_at_hour) %>:<%= slot.display_time_component(slot.ends_at_minute) %><hr>
+					    		</li>
+								<% end %>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<% if user_signed_in? %>
+		<div class="row">
+			<div class="span6">
+			  <%= render :partial => 'embed_code', :locals => { :url => "#{ENV['DOMAIN_PROTOCOL']}://#{ENV['DOMAIN_NAME']}#{public_path(:id => @company.public_identifier)}" } %>
+			</div>
+		</div>
+		<div class="row">
+			<div class="span6">
+			  <%= link_to I18n.t('back'), appointments_path, :class => 'btn btn-brand-dark' %>
+			</div>
+		</div>
+	<% end %>
+
+	<div data-date="<%= @today %>" data-year="<%= @today.year %>" data-month="<%= @today.month %>" id="selected" style="data_container"></div>
+	<div data-days="<%= @disabled_days_of_week.to_json %>" id="disabled_days_of_week" style="data_container"></div>
+<% end %>

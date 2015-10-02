@@ -1,0 +1,14 @@
+<%= simple_form_for(@service, :remote => true, :html => { 'data-type' => :json, :id => 'new_service_form' }) do |f| %>
+	<div class="modal-header">
+	  <a class="close" data-dismiss="modal">×</a>
+	  <h3><%= I18n.t('services.new') %></h3>
+	</div>
+	<div class="modal-body">
+	    <div class="form-inputs">
+	    	<%= render :partial => 'form_inputs', :locals => { :f => f } %>
+		</div>
+	</div>
+	<div class="modal-footer">
+	  <%= f.button :submit, I18n.t('services.create'), :class => 'btn btn-success' %>
+	</div>
+<% end %>

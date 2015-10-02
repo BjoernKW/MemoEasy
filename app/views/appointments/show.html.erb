@@ -1,0 +1,43 @@
+<%= render 'layouts/sub_navigation' %>
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="span6 well">
+			<p>
+			  <strong><%= I18n.t('appointments.starts_at') %>:</strong>
+			  <%= I18n.l(@appointment.starts_at) %><br>
+			  <%= @appointment.starts_at %>
+			</p>
+			<p>
+			  <strong><%= I18n.t('appointments.ends_at') %>:</strong>
+			  <%= I18n.l(@appointment.ends_at) %>
+			</p>
+			<p>
+			  <strong><%= I18n.t('customers.single') %>:</strong>
+			  <%= link_to @appointment.customer.name, @appointment.customer %>
+			</p>
+			<p>
+			  <strong><%= I18n.t('services.single') %>:</strong>
+			  <%= link_to @appointment.service.name, @appointment.service %>
+			</p>
+			<p>
+			  <strong><%= I18n.t('staff_members.single') %>:</strong>
+			  <%= link_to @appointment.staff_member.name, @appointment.staff_member %>
+			</p>
+			<% if @appointment.repeat_in_days > 0 %>
+				<p>
+				  <strong><%= I18n.t('appointments.repeat_interval') %>:</strong>
+				  <%= I18n.t('appointments.days', :days => @appointment.repeat_in_days) %>
+				</p>
+			<% end %>
+		</div>
+	</div>
+	<div class="row">
+		<div class="span6">
+			<%= link_to I18n.t('back'), appointments_path, :class => 'btn btn-secondary' %>
+			<%= link_to I18n.t('edit'), edit_appointment_path(@appointment), :class => 'btn btn-secondary' %>
+			<%= link_to I18n.t('delete'), appointment_path(@appointment), :class => 'btn btn-danger', :title => I18n.t('destroy'), data: { confirm: I18n.t('confirm') }, 'data-message_body' => I18n.t('modal.message_body'), 'data-cancel_text' => I18n.t('cancel'), 'data-confirmed_text' => I18n.t('modal.confirmed_text'), method: :delete %>
+			</ul>
+		</div>
+	</div>
+</div>

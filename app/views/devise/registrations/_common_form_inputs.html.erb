@@ -1,0 +1,9 @@
+<%= f.input :first_name, :required => true, :autofocus => true, :label => I18n.t('customers.first_name') %>
+<%= f.input :last_name, :required => true, :label => I18n.t('customers.last_name') %>
+<%= f.fields_for :company_attributes, resource.company do |company| %>
+	<%= company.input :name, :required => true, :label => I18n.t('customers.company') %>
+	<%= company.input :street_address, :required => true, :label => I18n.t('companies.street_address') %>
+	<%= company.input :postal_code, :required => true, :label => I18n.t('companies.postal_code') %>
+	<%= company.input :city, :required => true, :label => I18n.t('companies.city') %>
+<% end %>
+<%= f.input :email, :required => true, :label => I18n.t('customers.email') %>

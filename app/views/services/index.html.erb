@@ -1,0 +1,13 @@
+<%= render 'layouts/sub_navigation' %>
+
+<div id="service_created" class="alert alert-success" style="display: none;">
+  <%= I18n.t('services.created') %>
+</div>
+
+<p><%= link_to I18n.t('services.new'), new_service_path, :class => 'btn' %></p>
+
+<div id="list">
+  <%= render :partial => 'list', :locals => { :services => @services } %>
+</div>
+
+<p><%= link_to I18n.t('services.new'), new_service_path, :class => 'btn' %></p>

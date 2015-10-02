@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title><%= content_for?(:title) ? yield(:title) : I18n.t('app_name') %></title>
+    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : I18n.t('app_name') %>">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/images/memoeasy-64x64.png" type="image/png" />
+    <link rel="icon" href="/images/memoeasy-64x64.png" type="image/png" />
+    <link rel="apple-touch-icon" href="/images/memoeasy-57x57.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="/images/memoeasy-72x72.png" />
+    <link rel="apple-touch-icon" sizes="114x114" href="/images/memoeasy-114x114.png" />
+    <link rel="apple-touch-icon" sizes="144x144" href="/images/memoeasy-144x144.png" />
+    <%= stylesheet_link_tag "application", :media => "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+    <%= yield(:head) %>
+    <script type="text/javascript">(function(e,b){if(!b.__SV){var a,f,i,g;window.mixpanel=b;a=e.createElement("script");a.type="text/javascript";a.async=!0;a.src=("https:"===e.location.protocol?"https:":"http:")+'//cdn.mxpnl.com/libs/mixpanel-2.2.min.js';f=e.getElementsByTagName("script")[0];f.parentNode.insertBefore(a,f);b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==
+typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.track_charge people.clear_charges people.delete_user".split(" ");for(g=0;g<i.length;g++)f(c,i[g]);
+b._i.push([a,e,d])};b.__SV=1.2}})(document,window.mixpanel||[]);
+mixpanel.init("f7eb2a4201400edf690d0eb48c384c38");</script>
+  </head>
+  <body class="<%= controller_name %> <%= action_name %>">
+    <!--[if lt IE 7]>
+      <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+    <![endif]-->
+    <% unless controller_name == 'appointments' && action_name == 'public' %>
+      <header class="navbar navbar-fixed-top <%= controller_name %> <%= action_name %>">
+        <nav class="navbar-inner">
+          <div class="container-fluid">
+            <%= render 'layouts/navigation' %>
+          </div>
+        </nav>
+      </header>
+    <% end %>
+    <% if controller_name == 'home' && action_name == 'index' %>
+      <%= render 'home/carousel' %>
+    <% end %>
+    <div id="main" role="main">
+      <div class="container-fluid">
+        <% if user_signed_in? %>
+          <% if current_user.company.slots.length == 0 || current_user.company.staff_members.length == 0 || current_user.company.services.length == 0 || current_user.company.customers.length == 0 %>
+            <div data-spy="affix" data-offset-top="50" id="tutorial_todo" class="sticky_box span3">
+              <h3><%= I18n.t('tutorial.todo') %></h3>
+              <ol>
+                <li<% if current_user.company.slots.length > 0 %> class="muted done"<% end %>><%= link_to I18n.t('slots.create'), new_slot_path %></li>
+                <li<% if current_user.company.staff_members.length > 0 %> class="muted done"<% end %>><%= link_to I18n.t('staff_members.create'), new_staff_member_path %></li>
+                <li<% if current_user.company.services.length > 0 %> class="muted done"<% end %>><%= link_to I18n.t('services.create'), new_service_path %></li>
+                <li<% if current_user.company.customers.length > 0 %> class="muted done"<% end %>><%= link_to I18n.t('customers.create'), new_customer_path %></li>
+              </ol>  
+            </div>
+          <% end %>
+          <% if @upgrade_plan %>
+            <div data-spy="affix" data-offset-top="50" id="upgrade_plan" class="sticky_box">
+              <a data-toggle="modal" href="#plan-options" class="btn btn-primary" type="button"><%= I18n.t('plans.upgrade') %></a>
+            </div>
+          <% end %>
+          <div id="plan-options" class="modal" style="display: none;">
+            <%= simple_form_for current_user, :url => update_plan_path, :html => { :method => :put, :class => 'form-horizontal' } do |f| %>
+              <div class="modal-header">
+                <a class="close" data-dismiss="modal">&#215;</a>
+                <h3><%= I18n.t('devise.registrations.edit.change_plan') %></h3>
+              </div>
+              <div class="modal-body">
+                <div class="container-fluid">
+                  <%= f.input :role_ids, :collection => Role.where.not(name: 'admin'), :as => :radio_buttons, :label_method => lambda {|role| role.name.titleize}, :label => false, :item_wrapper_class => 'inline' %>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <%= f.submit I18n.t('devise.registrations.edit.change_plan'), :class => 'btn btn-primary' %>
+                <a class="btn" data-dismiss="modal" href="#"><%= I18n.t('close') %></a>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+        <div class="content">
+          <%= yield %>
+          <hr>
+          <footer>
+            <div id="main_footer">
+              <%= I18n.t('copyright', :company_name => link_to(I18n.t('company_name'), 'http://simductive.com'), :current_year => current_year).html_safe %> | <%= link_to(I18n.t('content.terms.short'), terms_path) %> | <%= link_to(I18n.t('content.contact.header'), contact_path) %><br />
+              <%= I18n.t('rights_reserved') %>
+            </div>
+          </footer>
+        </div>
+      </div>
+    </div>
+    <% if controller_name == 'home' && action_name == 'index' %>
+      <div id="screencast_modal" class="modal hide fade" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+          <h3 id="screencast_modal_header"><%= I18n.t('screencast.title') %></h3>
+        </div>
+        <div class="modal-body word-break">
+          <iframe width="960" height="720" src="//www.youtube.com/embed/iJFhuC_qulk?rel=0" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="modal-footer">
+          <button class="btn" data-dismiss="modal" aria-hidden="true"><%= I18n.t('close') %></button>
+        </div>
+      </div>
+    <% end %>
+    <div data-id="<%= user_signed_in? ? current_user.company.id : !@company.nil? ? @company.id : 0 %>" id="company" style="data_container"></div>
+    <div data-id="<%= user_signed_in? ? current_user.id : 0 %>" id="logged_in_user" style="data_container"></div>
+    <div data-please-choose="<%= I18n.t('please_choose') %>" id="default_labels" style="data_container"></div>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-40515120-2', 'memoeasy.com');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    </script>
+    <% if user_signed_in? %>
+      <script id="IntercomSettingsScriptTag">
+        window.intercomSettings = {
+          email: "<%= current_user.email %>",
+          created_at: <%= current_user.created_at.to_i %>,
+          app_id: "c2a0e61baf46a6ed6af44dbe3e238167cfddfcdb"
+        };
+      </script>
+      <script>(function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',intercomSettings);}else{var d=document;var i=function(){i.c(arguments)};i.q=[];i.c=function(args){i.q.push(args)};w.Intercom=i;function l(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://static.intercomcdn.com/intercom.v1.js';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);}if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}};})()</script>
+    <% end %>
+  </body>
+</html>

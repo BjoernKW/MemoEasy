@@ -1,0 +1,15 @@
+.registration_slides {
+	margin: 20px;
+}
+
+@media (max-width: 979px) {
+  .registration_slides {
+    display: none;
+  }
+}
+
+@media (min-width: 980px) {
+  .registration_slides {
+    display: block;
+  }
+}

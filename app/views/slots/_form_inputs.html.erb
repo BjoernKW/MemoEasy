@@ -1,0 +1,12 @@
+<div class="bootstrap-timepicker">
+  <%= f.input :starts_at_picker, :label => I18n.t('slots.starts_at'), :input_html => { :type => :time, :class => 'pick_a_time input-small', 'data-default-time' => @slot.id.nil? ? '09:00' : "#{@slot.starts_at_hour}:#{@slot.starts_at_minute}" } %>
+  <span id="starts_at_errors" class="error_messages" style="display: none;"></span>
+</div>
+<div class="bootstrap-timepicker">
+  <%= f.input :ends_at_picker, :label => I18n.t('slots.ends_at'), :input_html => { :type => :time, :class => 'pick_a_time input-small', 'data-default-time' => @slot.id.nil? ? '20:00' : "#{@slot.ends_at_hour}:#{@slot.ends_at_minute}" } %>
+  <span id="ends_at_errors" class="error_messages" style="display: none;"></span>
+</div>
+<div class="field_with_bottom_margin">
+	<%= f.input :weekday, :label => I18n.t('slots.weekday'), :collection => available_days.each.map { |e| e } , :prompt => I18n.t('please_choose') rescue nil %><span id="weekday_errors" class="error_messages" style="display: none;"></span>
+</div>
+<%= f.input :blocker, :as => :boolean, :label => I18n.t('slots.is_blocker') %>
